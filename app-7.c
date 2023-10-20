@@ -9,8 +9,10 @@ int main()
   scanf("%d", &number);
   if (number > 10)
     printf("Number is bigger than 10 (%d)", number);
-  else
+  else if (number > 10)
     printf("Number is less than 10 (%d)", number);
+  else
+    printf("Number is 10");
 
   return 0;
 }
