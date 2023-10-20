@@ -1,10 +1,11 @@
-#include<stdio.h>
+#include <stdio.h>
 
 int main()
 {
-  int number;
-  printf("enter a number \n");
-  scanf("%d",&number);
-  printf("your number is %d",number);
+  printf("   /|\n");
+  printf("  / |\n");
+  printf(" /  |\n");
+  printf("/___|\n");
+
   return 0;
 }

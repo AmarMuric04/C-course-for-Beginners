@@ -1,0 +1,9 @@
+{
+  "files.associations": {
+    "stdio.h": "c"
+  },
+  "editor.formatOnSave": true,
+  "[c]": {
+    "editor.defaultFormatter": "ms-vscode.cpptools"
+  }
+}
