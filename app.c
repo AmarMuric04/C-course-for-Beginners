@@ -15,6 +15,8 @@ int main()
   characterAge = 30;
   printf("The winds blew up, her bow dipped down\n");
   printf("Oh blow, my bully boys, blow (%d)\n", characterAge);
+  
+  printf("");
 
   return 0;
 }
