@@ -17,10 +17,35 @@ int main()
   printf("Unesi broj");
   scanf("%d", &a);
 
-  if (a > b)
-    printf("vas broj je veci od %d", b);
-  else
-    printf("Vas broj je manji od %d", b);
+  // if (a > b)
+  //   printf("vas broj je veci od %d", b);
+  // else
+  //   printf("Vas broj je manji od %d", b);
 
+  switch (a)
+  {
+  case 1:
+    printf("Monday");
+    break;
+  case 2:
+    printf("Tuesday");
+    break;
+  case 3:
+    printf("Wednesday");
+    break;
+  case 4:
+    printf("Thursday");
+    break;
+  case 5:
+    printf("Friday");
+    break;
+  case 6:
+    printf("Saturday");
+    break;
+  case 7:
+    printf("Sunday");
+  default:
+    printf("Niste upisali broj od 1 do 7");
+  };
   return 0;
 }
