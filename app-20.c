@@ -3,19 +3,15 @@
 int main()
 {
 
-  int index = 1;
-
-  while (index <= 5)
+  int i = 0;
+  while (i < 5)
   {
-    printf("%d\n", index);
-    index++;
+    i++;
+    printf("%d\n", i);
   }
-  do
+  for (int i = 1; i <= 5; i++)
   {
-
-    printf("%d\n", index);
-    index++;
-  } while (index <= 5);
-
+    printf("%d\n", i);
+  }
   return 0;
 }
