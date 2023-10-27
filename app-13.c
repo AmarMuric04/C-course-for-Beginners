@@ -9,6 +9,7 @@ int main()
   a = abc / 100;
   b = (abc / 10) % 10;
   c = abc % 10;
+
   if (abc > 99 && abc < 1000)
   {
     if (b < a)
