@@ -1,0 +1,2 @@
+This was written using fprintf
+This was written using fputs
