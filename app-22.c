@@ -9,6 +9,6 @@ int main()
   double *pGpa = &gpa;
   int *pAge = &age;
 
-  printf("age's memory address: %p", pAge);
+  printf("age's memory address: %d", *pAge);
   return 0;
 }
