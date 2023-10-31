@@ -2,7 +2,8 @@
 #include <math.h>
 
 int main()
-{ /*
+{
+  /*
    float a;
    printf("Unesite bilo koji realan broj: ");
    scanf("%f", &a);
@@ -110,7 +111,7 @@ B)
     S += f / Sp;
   }
   printf("zbir je %f", S);
-  ------------------------------*/
+  ------------------------------
 
   int i, n, f = 1;
   float Sp = 0;
@@ -128,6 +129,32 @@ B)
     z = -z;
   }
   printf("zbir je %f", S);
+  ------------------------------
 
+  int i, x, n;
+  float S = 0;
+  // B)
+  printf("x: ");
+  scanf("%f", &x);
+  printf("n: ");
+  scanf("%d", &n);
+  for (i = 1; i <= n; i++)
+  {
+
+  }
+  printf("zbir je %f", S);
+  ----------------------------
+  int n, i;
+  float S = 1;
+  float q = 0;
+  printf("n: ");
+  scanf("%d", &n);
+  for (i = 1; i <= n; i++)
+  {
+    q = sqrt(q + 2);
+    S *= 1 / q;
+  }
+  printf("proizvod %f", S);
   return 0;
+  ---------------------------- */
 }
