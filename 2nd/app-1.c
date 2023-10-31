@@ -194,32 +194,39 @@ B)
     i++;
   };
   printf("zbir %f", S);
-  ------------------------ */
-  int n, m, Sp, Snp;
-
+  ------------------------
+  int n, m;
+  long S = 0;
   printf("upisi n: ");
-  scanf("%d", n);
+  scanf("%d", &n);
   printf("upisi m: ");
-  scanf("%d", m);
+  scanf("%d", &m);
   if (n < m)
   {
-    int i = n;
-    while (i < m)
-      i++;
-    if (i % 2 == 0)
+    while (n <= m)
     {
-      Sp += pow(i, 2);
-      printf("%d", Sp);
+      if (n % 2 == 0)
+        S += pow(n, 2);
+      else
+        S += pow(n, 3);
+      n++;
     }
-    else if (i % 2 != 0)
-    {
-      Snp += pow(i, 3);
-      printf("%d", Snp);
-    }
+    printf("%d\n", S);
   }
   else
   {
     printf("Broj m je manji od broja n");
   }
+  ------------------------------
+
+  int n, a, b;
+
+  printf("Unesi broj i broj na koji ce prvi broj biti: ");
+  scanf("%d %d", &n, &a);
+  b = pow(n, a);
+  printf("%d", b);
+  -------------------------------------
+  printf("%d", 5 * 5 * 5);
+  ------------------------------------*/
   return 0;
 }
