@@ -179,8 +179,47 @@ B)
   {
     S += i;
   }
-  printf("%d", S);\
-  ---------------------------------*/
-  
+  printf("%d", S);
+ ----------------------------
+
+  int n;
+  float S = 0;
+  printf("n: ");
+  scanf("%d", &n);
+
+  int i = 1;
+  while (i <= n)
+  {
+    S += 1 / pow(2 * i + 1, 2);
+    i++;
+  };
+  printf("zbir %f", S);
+  ------------------------ */
+  int n, m, Sp, Snp;
+
+  printf("upisi n: ");
+  scanf("%d", n);
+  printf("upisi m: ");
+  scanf("%d", m);
+  if (n < m)
+  {
+    int i = n;
+    while (i < m)
+      i++;
+    if (i % 2 == 0)
+    {
+      Sp += pow(i, 2);
+      printf("%d", Sp);
+    }
+    else if (i % 2 != 0)
+    {
+      Snp += pow(i, 3);
+      printf("%d", Snp);
+    }
+  }
+  else
+  {
+    printf("Broj m je manji od broja n");
+  }
   return 0;
 }
