@@ -227,6 +227,37 @@ B)
   printf("%d", b);
   -------------------------------------
   printf("%d", 5 * 5 * 5);
-  ------------------------------------*/
+  ------------------------------------
+
+  int ABC, a, b, c, ABCdva;
+  printf("Trocifreni broj: ");
+  scanf("%d", &ABC);
+  printf("Trocifreni broj: ");
+  scanf("%d", &ABCdva);
+
+  a = ABC / 100;
+  b = (ABC / 10) % 10;
+  c = ABC % 10;
+
+  if (ABC > ABCdva)
+    printf("%d", ABC - ABCdva);
+  else
+    printf("%d", ABCdva - ABC);
+    ------------------------------
+  int i;
+  for (int i = 1; i <= 1000000; i++)
+  {
+    int S = 0;
+    for (int j = 1; j <= i; j++)
+    {
+      if (i % j == 0)
+      {
+        S += j;
+        if (S == i)
+          printf("%d\n", S);
+      }
+    }
+  }
+  --------------------------------- */
   return 0;
 }
