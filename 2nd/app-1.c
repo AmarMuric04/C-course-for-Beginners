@@ -243,21 +243,42 @@ B)
     printf("%d", ABC - ABCdva);
   else
     printf("%d", ABCdva - ABC);
-    ------------------------------
+    ------------------------------ */
   int i;
-  for (int i = 1; i <= 1000000; i++)
+  for (int i = 1; i <= 1000; i++)
   {
     int S = 0;
-    for (int j = 1; j <= i; j++)
+    for (int j = 1; j < i; j++)
     {
       if (i % j == 0)
       {
+
         S += j;
         if (S == i)
+        {
+          printf("%d\n", j);
+          printf("%d\n", i);
           printf("%d\n", S);
+        }
       }
     }
   }
-  --------------------------------- */
+
+  int k, n;
+  printf("Da li je broj perfektan?\nUnesi broj i vidi!\n");
+  scanf("%d", &n);
+
+  int Sp = 0;
+  for (int k = 1; k < n; k++)
+  {
+    if (n % k == 0)
+    {
+      Sp += k;
+    }
+  }
+  if (Sp == n)
+    printf("Vas broj je perfektan ( %d )!", Sp);
+  else
+    printf("Vas broj nije perfektan ( %d )!", n);
   return 0;
 }
