@@ -280,7 +280,7 @@ B)
     printf("Vas broj je perfektan ( %d )!", Sp);
   else
     printf("Vas broj nije perfektan ( %d )!", n);
-    ---------------------------------------- */
+    ----------------------------------------
 
   int a, b, c;
 
@@ -290,8 +290,20 @@ B)
     b = (i / 10) % 10;
     c = i % 10;
 
-    
+    if (i % (a * 10 + c) == 0)
+      printf("%d%d%d\n", a, b, c);
   }
+----------------------------------------------
+  // AB - SATI, CD - MINUTI, EF - SEKUNDE
 
+  int a, b, c, n;
+  printf("n: ");
+  scanf("%d", &n);
+  for (a = 0; a <= 23; a++)
+    for (b = 0; b <= 59; b++)
+      for (c = 0; c <= 59; c++)
+        if ((a % 10) + (a / 10) + (b % 10) + (b / 10) + (c % 10) + (c / 10) == n)
+          printf("%d sat %d min %d sec\n", a, b, c);
+------------------------------------------------------------- */
   return 0;
 }
