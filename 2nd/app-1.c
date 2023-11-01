@@ -243,7 +243,7 @@ B)
     printf("%d", ABC - ABCdva);
   else
     printf("%d", ABCdva - ABC);
-    ------------------------------ */
+    ------------------------------
   int i;
   for (int i = 1; i <= 1000; i++)
   {
@@ -280,5 +280,18 @@ B)
     printf("Vas broj je perfektan ( %d )!", Sp);
   else
     printf("Vas broj nije perfektan ( %d )!", n);
+    ---------------------------------------- */
+
+  int a, b, c;
+
+  for (int i = 100; i < 1000; i++)
+  {
+    a = i / 100;
+    b = (i / 10) % 10;
+    c = i % 10;
+
+    
+  }
+
   return 0;
 }
