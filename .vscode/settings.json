@@ -1,7 +1,8 @@
 {
   "files.associations": {
     "stdio.h": "c",
-    "typeinfo": "c"
+    "typeinfo": "c",
+    "cmath": "c"
   },
   "editor.formatOnSave": true,
   "[c]": {

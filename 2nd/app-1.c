@@ -304,6 +304,142 @@ B)
       for (c = 0; c <= 59; c++)
         if ((a % 10) + (a / 10) + (b % 10) + (b / 10) + (c % 10) + (c / 10) == n)
           printf("%d sat %d min %d sec\n", a, b, c);
-------------------------------------------------------------- */
+-------------------------------------------------------------
+
+  int n;
+  float m, S = 0, average;
+  printf("Unesi koliko dug ce biti niz n: ");
+  scanf("%d", &n);
+  int i = 1;
+
+  while (i <= n)
+  {
+    i++;
+    if (m == 0)
+    {
+      break;
+    }
+    printf("Unesi bilo koji broj sem NULE: ");
+    scanf("%f", &m);
+
+    S += m;
+    average = S / n;
+  }
+  printf("Suma vasih unetih brojeva je %f\nAritmeticki niz vasih unetih brojeva je %f", S, average);
+  ------------------------------------------------------------------------------
+
+  int n;
+  float m, S = 0, average;
+  printf("Unesi koliko dug ce biti niz n: ");
+  scanf("%d", &n);
+  int i = 1;
+
+  while (i <= n)
+  {
+    i++;
+    if (m == 0)
+    {
+      break;
+    }
+    printf("Unesi bilo koji broj sem NULE: ");
+    scanf("%f", &m);
+    if (m >= 2 && m <= 6)
+    {
+      S += m;
+      average = S / n;
+    }
+  }
+  printf("Suma vasih unetih brojeva je %f\nAritmeticki niz vasih unetih brojeva je %f\n(samo za brojeve koji su >= 2 && <=6)", S, average);
+---------------------------------------------------------------------------
+5.12. Саставити програм који ће учитати два броја m и n. Оба броја треба да буду природна. Ако
+тај услов није испињен, учитавање треба поновити. Ако је n<m, заменити m са n. Наћи и исписати
+суму квадратних корена свих непарних бројева од m до n
+
+  int n, m;
+  float S = 0;
+  int n2;
+  printf("Unesite n: ");
+  scanf("%d", &n);
+  printf("Unesite m: ");
+  scanf("%d", &m);
+  if (m > 0 && n > 0)
+  {
+    if (m > n)
+    {
+      n2 = m;
+      m = n;
+    }
+    for (int i = m; i <= n2; i++)
+    {
+      if (i % 2 != 0)
+      {
+        S += sqrt(i);
+      }
+    }
+    printf("%.3f", S);
+  }
+  else
+  {
+    printf("Unesite m i n: ");
+    scanf("%d %d", m, n);
+  }
+  --------------------------------------
+Саставити програм којим се за унето n рачуна сума:
+  float S = 0;
+  int n;
+  int znak = 1;
+  printf("n: ");
+  scanf("%d", &n);
+
+  int i = 1;
+  while (i <= n)
+  {
+
+    S += (float)znak / i;
+    znak = -znak;
+    i++;
+  }
+  printf("%.3f\n", S);
+-----------------------------------------
+. Саставити програм којим се исписује највећи заједнички делилац (NZD) бројева a и b
+помоћу Еуклидовог алгоритма:
+- ако је a=b, тада је NZD=a и то је крај алгоритма;
+- ако је а≠b, тада од већег броја одузимамо мањи и враћамо се на први корак.
+
+  int NZD, a, b, max, c;
+
+  printf("a, b: ");
+  scanf("%d %d", &a, &b);
+
+  while (a != b)
+    if (a > b)
+      a -= b;
+    else
+      b -= a;
+
+  printf("NZD je %d", a);
+  ---------------------------------------------
+  int a, b, c;
+
+  for (a = 1; a <= 9; a++)
+    for (b = 0; b <= 9; b++)
+      for (c = 0; c <= 9; c++)
+        if ((a * 100 + b * 10 + c) % (a + b + c) == 0)
+          printf("%d%d%d je Nivenov broj\n", a, b, c);
+---------------------------------------------------------*/
+
+  int a, b, c = 1;
+
+  printf("a,b i c: ");
+  scanf("%d %d %d", &a, &b, &c);
+
+  if (a >= 1 && a <= 20 && b >= 1 && b <= 20)
+  {
+    if (pow(a, 2) + pow(b, 2) == pow(c, 2))
+      printf("Brojevi %d %d su Pitagorini", a, b);
+    else
+      printf("ne");
+  }
+
   return 0;
 }
