@@ -426,20 +426,47 @@ B)
       for (c = 0; c <= 9; c++)
         if ((a * 100 + b * 10 + c) % (a + b + c) == 0)
           printf("%d%d%d je Nivenov broj\n", a, b, c);
----------------------------------------------------------*/
-
-  int a, b, c = 1;
+---------------------------------------------------------
+Саставити програм којим се исписују сви Питагорини бројеви а, b и c за 1 20 ≤ ≤ a ,
+1 20 ≤ ≤ b . Бројеви су Питагорини ако важи: a2+b2=c2
+.
+  int a, b, c, e, d, f;
 
   printf("a,b i c: ");
   scanf("%d %d %d", &a, &b, &c);
+  f = ceil(pow(a, 2));
+  d = ceil(pow(b, 2));
+  e = ceil(pow(c, 2));
+  if (f + d == e)
+    printf("brojevi %d i %d su pitagurini brojevi", a, b);
+  else
+    printf("broj nije pitagorin");
 
-  if (a >= 1 && a <= 20 && b >= 1 && b <= 20)
+
+
+  int a, b, c, S = 1;
+
+  for (a = 1; a <= 20; a++)
+    for (b = 1; b <= 20; b++)
+    {
+      S = a * a + b * b;
+      c = 1;
+      while (c * c <= S)
+      {
+        if (c * c == S)
+          printf("%d + %d = %d\n", a, b, c);
+        c++;
+      }
+    }
+---------------------------------------
+Саставити програм који ће пет пута исписати реченицу Pozdrav svima! употребом DO
+WHILE петље.
+  int i = 0;
+  do
   {
-    if (pow(a, 2) + pow(b, 2) == pow(c, 2))
-      printf("Brojevi %d %d su Pitagorini", a, b);
-    else
-      printf("ne");
-  }
-
+    printf("Pozdrav svima!\n");
+    i++;
+  } while (i < 6);
+  ------------------------------------- */
   return 0;
 }
