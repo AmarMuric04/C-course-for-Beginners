@@ -468,5 +468,19 @@ WHILE петље.
     i++;
   } while (i < 6);
   ------------------------------------- */
+
+  int h, m, s, q;
+
+  printf("Unesi sekunde");
+  scanf("%d", &q);
+
+  s = q % 60;
+  m = q / 60;
+  h = m / 60;
+  m = m % 60;
+  h = h % 60;
+
+  printf("%d %d %d", h, m, s);
+
   return 0;
 }
