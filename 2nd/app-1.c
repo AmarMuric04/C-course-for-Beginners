@@ -510,7 +510,41 @@ WHILE петље.
 
   // }
 
------------------------------------------- */
+------------------------------------------
+
+  int a, b, i, br = 0;
+  printf("Unesi a i b\n");
+  scanf("%d %d", &a, &b);
+  if (a > b)
+  {
+    for (i = 1; i < a; i++)
+    {
+      if (a % i == 0 && b % i == 0 && i > 1)
+      {
+        br++;
+      }
+    }
+
+    br == 0
+        ? printf("Brojevi jesu uzajamno prosti")
+        : printf("Brojevi nisu uzajamno prosti");
+  }
+  else if (b > a)
+  {
+
+    for (i = 1; i < b; i++)
+    {
+      if (a % i == 0 && b % i == 0 && i > 1)
+      {
+        br++;
+      }
+    }
+
+    br == 0
+        ? printf("Brojevi jesu uzajamno prosti")
+        : printf("Brojevi nisu uzajamno prosti");
+  }
+-------------------------------------------------------*/
 
   return 0;
 }
