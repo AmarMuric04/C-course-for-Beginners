@@ -467,7 +467,7 @@ WHILE петље.
     printf("Pozdrav svima!\n");
     i++;
   } while (i < 6);
-  ------------------------------------- */
+  -------------------------------------
 
   int h, m, s, q;
 
@@ -481,6 +481,36 @@ WHILE петље.
   h = h % 60;
 
   printf("%d %d %d", h, m, s);
+---------------------------------------------------------
+  int p, n, q, q2;
+  float S = 0;
+  float Sn = 0;
+  printf("unesi p i niz n");
+  scanf("%d %d", &p, &n);
+
+  for (int i = 0; i <= p - 1; i++)
+  {
+    printf("Unesi broj");
+    scanf("%d", &q);
+    i < p - 1 ? S += q : -1;
+  }
+  for (int i = p + 1; i <= n; i++)
+  {
+    printf("Unesi broj");
+    scanf("%d", &q2);
+    Sn += q2;
+  }
+
+  printf("%.0f %.0f", S, Sn);
+  S == Sn ? printf("\nBrojevi su jednaki") : printf("\nBrojevi nisu jednaki");
+  // for (int i; i < n; i++)
+  // {
+  //   printf("Unesi broj");
+  //   scanf("%d", &q);
+
+  // }
+
+------------------------------------------ */
 
   return 0;
 }
