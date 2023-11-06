@@ -544,7 +544,21 @@ WHILE петље.
         ? printf("Brojevi jesu uzajamno prosti")
         : printf("Brojevi nisu uzajamno prosti");
   }
--------------------------------------------------------*/
+-------------------------------------------------------
+//FIBONACIJEV NIZ
 
+  int i, a = 0, b = 1, c, n;
+
+  printf("Unesi duzinu niza: ");
+  scanf("%d", &n);
+
+  for (i = 1; i <= n; i++)
+  {
+    printf(" %d", c);
+    a = b;
+    b = c;
+    c = a + b;
+  }
+  ---------------------------------------------------*/
   return 0;
 }
