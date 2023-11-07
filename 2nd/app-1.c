@@ -248,7 +248,7 @@ B)
   for (int i = 1; i <= 1000; i++)
   {
     int S = 0;
-    for (int j = 1; j < i; j++)
+    for (int j = 1; j <= i; j++)
     {
       if (i % j == 0)
       {
@@ -740,24 +740,291 @@ WHILE петље.
         }
   }
   s == n ? printf("Broj je savrsen") : printf("Broj nije savrsen");
-   */
+
   // 4.20.1 ISPISATI SVE SAVRSENE BROJEVE
-  int i, n, j;
+  int i, n, j, s;
   printf("niz n: ");
   scanf("%d", &n);
 
   for (i = 1; i <= n; i++)
   {
-    int s = 0;
+    s = 0;
     for (j = 1; j < i; j++)
     {
       if (i % j == 0)
       {
         s += j;
-        if (s == i)
-          printf("\n%d", j);
+      }
+    }
+    if (s == i)
+    {
+      printf("%d\n ", i);
+    }
+  }
+----------------------------------------
+  // 4.21 BROJ UCENIKA, NJIHOVE OCENE I KOLIKO JEDINICA IMA
+  int i = 1, j = 0, n, ocena, skupOcena = 0;
+  float avg = 0;
+  printf("unesi koliko ucenika ce dobiti ocenu: ");
+  scanf("%d", &n);
+
+  while (i <= n)
+  {
+    printf("Ocena ucenika br.%d: ", i);
+    scanf("%d", &ocena);
+    if (ocena == 1)
+    {
+      j++;
+    }
+    skupOcena += ocena;
+    avg = (float)skupOcena / n;
+    i++;
+  }
+  printf("Srednja ocena ucenika: %.2f\nBroj jedinica: %d", avg, j);
+----------------------------------------------------
+  // 4.22 ISPISATI SAT GDE CE SE 3 ISPISATI KAO 0h 00m 03s 00h 00m 30s ...
+
+  int h, m, s, n;
+  printf("n: ");
+  scanf("%d", &n);
+
+  for (h = 0; h <= 23; h++)
+    for (m = 0; m <= 59; m++)
+      for (s = 0; s <= 59; s++)
+      {
+        if (s / 10 + s % 10 + h / 10 + h % 10 + m % 10 + m / 10 == n)
+        {
+
+          printf("%dh : %dm : %ds\n", h, m, s);
+        }
+      }
+----------------------------------------------------
+
+  // 4.22 Саставити програм за табелирање функције 2 опсегу од xmin до xmax са кораком return 0;
+
+  float xmax, x, xmin, dx, y = 1, q = 1, q2 = 1;
+
+  printf("xmax i xmin: ");
+  scanf("%f %f", &xmin, &xmax);
+  x = xmin;
+  while (x < xmax)
+  {
+    q = 2 * x + 1;
+    q2 = x * x - 1;
+    y = q / q2;
+    printf("%.5f %.5f\n", x, y);
+    x += 0.2;
+  }
+  ----------------------------------------------------
+  // 4.24
+  int i;
+  float x, dx, n, y = 1, xmax, xmin, p = 1;
+  x = xmin;
+  printf("Unesi n i korak dx: ");
+  scanf("%f %f", &n, &dx);
+  printf("Unesi xmax i xmin: ");
+  scanf("%f %f", &xmin, &xmax);
+  for (x = xmin; x <= xmax; x += dx)
+  {
+    for (i = 1; i <= n; i++)
+    {
+      p *= x;
+      y *= (1 + p);
+    }
+    printf("%10.6f %11.6f\n", x, y);
+    p = 1;
+    y = 1;
+  }
+  ----------------------------------
+//4.25
+------------------------------------
+  // 4.26
+  int i, n, j;
+  printf("n: ");
+  scanf("%d", &n);
+
+  for (i = 1; i <= n; i++)
+  {
+    for (j = 1; j <= n; j++)
+    {
+      printf("* ");
+    }
+    printf("\n");
+  }
+  int i, n, j;
+  printf("n: ");
+  scanf("%d", &n);
+
+  for (i = 1; i <= n; i++)
+  {
+    for (j = 0; j <= 9; j++)
+    {
+      printf("%d", j);
+    }
+    printf("\n");
+  }
+  ------------------------------------
+  //4.27 ???
+  int i, j, m, n, a;
+  printf(" m= ");
+  scanf("%d", &m);
+  printf(" n= ");
+  scanf("%d", &n);
+  printf(" ASCII= ");
+  scanf("%d", &a);
+  printf("\n");
+  for (i = 0; i < m; i++)
+  {
+    for (j = 0; j < n; j++)
+      printf("%c", a);
+    printf("\n");
+  }
+  ------------------------------------
+  // 5.2 TROSENJE VREMENA NAJAJCE
+
+  int a = 1, b = 1, c = 10;
+
+  while (a <= 10)
+  {
+    printf("%d", a);
+    a++;
+  }
+  while (b <= 10)
+  {
+    if (b % 2 == 0)
+    {
+      printf("\n%d", b);
+    }
+    b++;
+  }
+  while (c > 0)
+  {
+    printf("\n%d", c);
+    c--;
+  }
+    ------------------------------------
+5.11
+  int i, b, m = 0, n, brojilac = 1, imenilac = 1;
+  while (n < 1 || m < 1 || m < n)
+  {
+    printf("m: ");
+    scanf("%d", &m);
+    printf("n: ");
+    scanf("%d", &n);
+  }
+  for (i = m; i > m - n; i--)
+    brojilac *= i;
+  for (i = 1; i <= n; i++)
+    imenilac *= i;
+  brojilac /= imenilac;
+  printf("\n%d", brojilac);
+-------------------------------------------
+  // 5.12 Саставити програм који ће учитати два броја m и n. Оба броја треба да буду природна. Ако
+  // тај услов није испињен, учитавање треба поновити.Ако је n < m, заменити m са n.Наћи и исписати суму квадратних
+  // корена /свих непарних бројева од m до n.\
+
+  int m = 0, n, k;
+  float s = 0;
+
+  while (m < 1 || n < 1)
+  {
+    printf("n i m: ");
+    scanf("%d %d", &m, &n);
+  }
+  if (n > m)
+  {
+    k = n;
+    n = m;
+    m = k;
+  }
+
+  for (int i = m; i >= n; i--)
+  {
+    if (i % 2 != 0)
+    {
+      s += sqrt(i);
+    }
+  }
+  printf("%.3f\n", s);
+------------------------------------------------------
+//5.13
+  int n, z = 1;
+  float s = 0;
+  printf("n: ");
+  scanf("%d", &n);
+  int i = 1;
+  while (i <= n)
+  {
+    s += (float)z / i;
+    z = -z;
+    i++;
+  }
+  printf("%.3f", s);
+------------------------------------------------------
+//5.15
+  int n = 1;
+  float s = 0, clan;
+  clan = 1 / (n * n);
+  while (clan > 1e-4)
+  {
+    clan = (float)1 / (n * n);
+    s += clan;
+    n++;
+  }
+  printf("suma = %.3f", s);
+------------------------------------------------------
+  // 5.16
+  int s, a, n, x, eps;
+  float clan;
+  printf("a: ");
+  scanf("%d", &a);
+  printf("x: ");
+  scanf("%d", &x);
+  printf("eps: ");
+  scanf("%d", &eps);
+---------------------------------------------
+  // 5.17Саставити програм којим се исписује највећи заједнички делилац (NZD) бројева a и b
+помоћу Еуклидовог алгоритма:
+- ако је a=b, тада је NZD=a и то је крај алгоритма;
+- ако је а≠b, тада од већег броја одузимамо мањи и враћамо се на први корак.
+
+  int a, b, NZD;
+  printf("a i b");
+  scanf("%d %d", &a, &b);
+  if (a == b)
+  {
+    printf("NZD je %d", a);
+  }
+
+  while (a != b)
+  {
+    if (a > b)
+    {
+      a = a - b;
+      if (a == b)
+      {
+        printf("NZD je %d", a);
+      }
+    }
+    else
+    {
+      b = b - a;
+      if (a == b)
+      {
+        printf("NZD je %d", a);
       }
     }
   }
+  ------------------------------------------------
+  int abc;
+  printf("abc: ");
+  scanf("%d", &abc);
+
+  abc % (abc / 100 + (abc / 10) % 10 + abc % 10) == 0 ? printf("%d je Nivenov broj", abc)
+                                                      : printf("%d nije Nivenov broj");
+------------------------------------------------------ */
+
+
+
   return 0;
 }
