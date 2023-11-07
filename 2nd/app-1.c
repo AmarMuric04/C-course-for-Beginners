@@ -559,56 +559,205 @@ WHILE петље.
     b = c;
     c = a + b;
   }
-  ---------------------------------------------------*/
+  ---------------------------------------------------
 
   int i, j;
 
-  // for (i = 1; i <= 5; i++)
-  // {
-  //   for (j = 1; j <= 5; j++)
-  //   {
-  //     printf("* ");
-  //   }
-  //   printf("\n");
-  // }
+  for (i = 1; i <= 5; i++)
+  {
+    for (j = 1; j <= 5; j++)
+    {
+      printf("* ");
+    }
+    printf("\n");
+  }
 
-  // for (i = 1; i <= 5; i++)
-  // {
-  //   for (j = 1; j <= i; j++)
-  //     printf("* ");
-  //   printf("\n");
-  // }
+  for (i = 1; i <= 5; i++)
+  {
+    for (j = 1; j <= i; j++)
+      printf("* ");
+    printf("\n");
+  }
 
-  // for (i = 1; i <= 4; i++)
-  // {
-  //   for (j = 1; j <= 5; j++)
-  //   {
-  //     if (j > 1 && j < 5 && i > 1 && i < 4)
-  //     {
-  //       printf("  ");
-  //     }
-  //     else
-  //       printf("* ");
-  //   }
-  //   printf("\n");
-  // }
-  // for (i = 1; i <= 5; i++)
-  // {
-  //   for (j = 1; j <= i; j++)
-  //     if (i == 3 && j == 2 || i == 4 && j > 1 && j < 4)
-  //     {
-  //       printf("  ");
-  //     }
-  //     else
-  //       printf("* ");
-  //   printf("\n");
-  // }
-  // for (i = 1; i <= 5; i++)
-  // {
-  //   for (j = 5; j >= i; j--)
-  //     printf("* ");
-  //   printf("\n");
-  // }
+  for (i = 1; i <= 4; i++)
+  {
+    for (j = 1; j <= 5; j++)
+    {
+      if (j > 1 && j < 5 && i > 1 && i < 4)
+      {
+        printf("  ");
+      }
+      else
+        printf("* ");
+    }
+    printf("\n");
+  }
+  for (i = 1; i <= 5; i++)
+  {
+    for (j = 1; j <= i; j++)
+      if (i == 3 && j == 2 || i == 4 && j > 1 && j < 4)
+      {
+        printf("  ");
+      }
+      else
+        printf("* ");
+    printf("\n");
+  }
+  for (i = 1; i <= 5; i++)
+  {
+    for (j = 5; j >= i; j--)
+      printf("* ");
+    printf("\n");
+  }
+---------------------------------------------------
+//OKRENI BROJ NAOPAKO
+  int n, m;
+  float a;
+  printf("n: ");
+  scanf("%d", &n);
+  m = n;
+  while (m > 0)
+  {
+    a = a * 10 + m % 10;
+    m = m / 10;
+  }
+  printf("%.0f", a);
+  ------------------------------------------------------
 
+  int n, i = 0;
+  printf("n: ");
+  scanf("%d", &n);
+  while (n > 0)
+  {
+    n = n / 10;
+    i++;
+  }
+  printf("%d", i);
+  -------------------------------------------------------
+ 4.13  // ISPISATI BROJEVE PRVE STOTINE KOJI SU DELJIVI SA 6 I SUMU NJIGOVIH CIFARA
+  int i, a, b, c;
+  float s = 0, sukupno = 0;
+  i = 1;
+  while (i <= 100)
+  {
+    if (i % 6 == 0)
+    {
+      a = i / 100;
+      b = (i / 10) % 10;
+      c = i % 10;
+      s = a + b + c;
+      printf("\n%d\n %.0f", i, s);
+      sukupno += i;
+      printf("ukupna suma brojeva je = %.0f", sukupno);
+    }
+    i++;
+
+  }
+  -------------------------------------------------------
+  4.14 //ISPISATI BROJEVE GDE JE DRUGA CIRFRA ZA 2 VECA OD PRVE I TRECA ZA 1 VECA OD DRUGE
+  for (int a = 1; a <= 9; a++)
+    for (int b = 0; b <= 9; b++)
+      for (int c = 0; c <= 9; c++)
+      {
+        if (b == (a + 2) && c == (b + 1))
+        {
+          printf("%d%d%d\n", a, b, c);
+        }
+      }
+--------------------------------------------
+4.15// ISPISATI AMSTRONGOVE BROJEVE, BROJ KOJI JE JEDNAK SUMI KUBOVA SVOJIH CIFARA
+  for (int a = 1; a < 9; a++)
+    for (int b = 0; b < 9; b++)
+      for (int c = 0; c < 9; c++)
+      {
+        if (a * a * a + b * b * b + c * c * c == (a * 100 + b * 10 + c))
+        {
+          printf("%d%d%d\n", a, b, c);
+        }
+      }
+---------------------------------------------
+  4.16 // ISPISATI SVE BROJEVE TAKO DA JE (AB)*(AB)- C*C = ABC
+  for (int a = 1; a < 9; a++)
+    for (int b = 0; b < 9; b++)
+      for (int c = 0; c < 9; c++)
+      {
+        if (((a * 10 + b) * (a * 10 + b) - c * c) == (a * 100 + b * 10 + c))
+        {
+          printf("%d%d%d\n", a, b, c);
+        }
+      }
+------------------------------------------------
+  // 4.17 ISPISATI SVE BROJEVE KOJI SU DELJIVI CIFRI KOJA SE DOBIJE NAKON STO SE OD OVE CIFRE MAKNE DRUGA CIFRA
+  for (int a = 1; a < 9; a++)
+    for (int b = 0; b < 9; b++)
+      for (int c = 0; c < 9; c++)
+      {
+        if ((a * 100 + b * 10 + c) % (a * 10 + c) == 0)
+        {
+          printf("%d%d%d\n", a, b, c);
+        }
+      }
+---------------------------------------------------
+  // 4.18 ISPISATI KOLIKO PRIRODNIH TROCIFRENIH BROJEVA POSTOJI CIJI ZBIR CIFARA DAJE 5, ONDA ISPISATI KOLIKO IH IMA
+  int i = 0;
+  int s = 0, a, b, c;
+  for (a = 1; a < 9; a++)
+    for (b = 0; b < 9; b++)
+      for (c = 0; c < 9; c++)
+      {
+        if (a + b + c == 5)
+        {
+          i++;
+          s += (a * 100 + b * 10 + c);
+        }
+      }
+  printf("suma je %d\nA ima ih %d", s, i);
+  -----------------------------------------------
+  // 4.19 ISPISATI BROJ N I SVE NJEGOVE DELIOCE.
+  int i, n;
+  printf("n: ");
+  scanf("%d", &n);
+
+  for (i = 1; i <= n; i++)
+  {
+    if (n % i == 0)
+    {
+      printf("%d\n", i);
+    }
+  }
+---------------------------------------------------
+  // 4.20 ISPISATI NIZ SAVRSENIH BROJEVA, BROJEVA JEDNAKIH SUMI SVOJIH DELIOCA
+
+  int i, n, s = 0;
+  printf("n: ");
+  scanf("%d", &n);
+
+  for (i = 1; i < n; i++)
+  {
+    if (n % i == 0)
+    {
+      s += i;
+        }
+  }
+  s == n ? printf("Broj je savrsen") : printf("Broj nije savrsen");
+   */
+  // 4.20.1 ISPISATI SVE SAVRSENE BROJEVE
+  int i, n, j;
+  printf("niz n: ");
+  scanf("%d", &n);
+
+  for (i = 1; i <= n; i++)
+  {
+    int s = 0;
+    for (j = 1; j < i; j++)
+    {
+      if (i % j == 0)
+      {
+        s += j;
+        if (s == i)
+          printf("\n%d", j);
+      }
+    }
+  }
   return 0;
 }
