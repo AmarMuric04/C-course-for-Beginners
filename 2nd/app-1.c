@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <math.h>
+#include <stdlib.h>
+#include <ctype.h>
 #define pi = 3.1415926
 
 int main()
@@ -1231,21 +1233,23 @@ WHILE петље.
   //2. ZADATAK 2list
   // napisati program kojim se za dati prirodan broj x formira broj y sastavljen od istih cifara ali u obrnutom poretku, a zatim ispisuje da li je broj x+y potpun kvadrat
 
-  int x, y = 0, z;
+    int x, y = 0, z;
 
   printf("ispisi x: ");
   scanf("%d", &x);
   z = x;
   while (z > 0)
   {
-    y *= 10 + z % 10;
+    y = y * 10 + z % 10;
     z /= 10;
   }
-  int pomoc = sqrt(y + x);
-  if (pomoc % 10 != 0)
-    printf("Brao");
+
+  float pomoc = sqrt(x + y);
+
+  if (pomoc == (int)pomoc)
+    printf("TOOO");
   else
-    printf("Jok vala");
+    printf("ne");
 
 //3. ZADATAK 2 list
   // ispisati program kojim se izracunava: S=1! +3! + 5! n mora biti neparan broj u suprotnom je s=0
@@ -1265,6 +1269,72 @@ WHILE петље.
     s += f;
   }
   printf("%.2f\n ", s);
------------------------------------------------ */
+-----------------------------------------------
+
+  int a, b, c;
+  float D = 1, x1 = 1, x2 = 1, q = 1, q2 = 1, q3 = 1, q4 = 1;
+
+  printf("a b c: ");
+  scanf("%d %d %d", &a, &b, &c);
+
+  q = 2 * a;
+  q2 = pow(b, 2);
+  q3 = (4 * a * c);
+  q4 = sqrt(q2 - q3);
+  D = q2 - q3;
+  if (D < 0)
+    printf("Poz");
+  if (D == 0)
+  {
+    x1 = ((-b) + q4) / q;
+    printf("%.2f je resenje za oba", x1);
+  }
+  if (D > 0)
+  {
+    x1 = ((-b) + q4) / q;
+    x2 = ((-b) - q4) / q;
+    printf("%.2f %.2f", x1, x2);
+  }
+------------------------------------------------
+
+  int y, a1, b1, a2, b2, x;
+
+  printf("Unesi a1 i b1: ");
+  scanf("%d %d", &a1, &b1);
+  printf("Unesi a2 i b2: ");
+  scanf("%d %d", &a2, &b2);
+
+  if (a1 == a2 && b1 == b2)
+  {
+    printf("Poklapaju se");
+  }
+  else if (a1 == a2)
+  {
+    printf("Paralelne su");
+  }
+
+  else
+  {
+    printf("Seku se");
+  }
+-------------------------------------------
+
+  // Zadatak 10. Podaci o krugovima se sastoje od koordinata centra i dužine poluprečnika.napisati program koji ispituje u kom su položaju dati krugovi.
+-------------------------------------------
+
+  int n;
+
+  printf("n: ");
+  scanf("%d", &n);
+
+  for (int i = 1; i <= n; i++)
+  {
+    if (n % i == 0)
+    {
+      printf("%d ", i);
+    }
+  }
+-------------------------------------------*/
+
   return 0;
 }
