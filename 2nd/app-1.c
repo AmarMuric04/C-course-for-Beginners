@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <math.h>
+#define pi = 3.1415926
 
 int main()
 {
@@ -902,7 +903,7 @@ WHILE петље.
     printf("\n%d", c);
     c--;
   }
-    ------------------------------------
+-------------------------------------------
 5.11
   int i, b, m = 0, n, brojilac = 1, imenilac = 1;
   while (n < 1 || m < 1 || m < n)
@@ -983,7 +984,7 @@ WHILE петље.
   printf("eps: ");
   scanf("%d", &eps);
 ---------------------------------------------
-  // 5.17Саставити програм којим се исписује највећи заједнички делилац (NZD) бројева a и b
+  // 5.17 Саставити програм којим се исписује највећи заједнички делилац (NZD) бројева a и b
 помоћу Еуклидовог алгоритма:
 - ако је a=b, тада је NZD=a и то је крај алгоритма;
 - ако је а≠b, тада од већег броја одузимамо мањи и враћамо се на први корак.
@@ -1034,10 +1035,9 @@ WHILE петље.
     k = k / 10;
   }
   printf("%d\n", m);
----------------------------------------------------------------
+--------------------------------------------------------
 //5.21
   int a, b, c, zbir;
-
   for (a = 1; a <= 20; a++)
   {
     for (b = 1; b <= 20; b++)
@@ -1052,7 +1052,7 @@ WHILE петље.
       }
     }
   }
----------------------------------------------------------*/
+---------------------------------------------------------
   int n, k, m = 0;
   printf("Unesi broj n: ");
   scanf("%d", &n);
@@ -1067,6 +1067,204 @@ WHILE петље.
     k = k / 10;
   }
   printf("%d\n", m);
+---------------------------------------------------------
 
+  int n, br;
+  printf("n: ");
+  scanf("%d", &n);
+  for (br = 2; n > 1; br++)
+    while (n % br == 0)
+    {
+      printf("%d ", br);
+      n = n / br;
+    }
+------------------------------------------------------
+  // 6.3. Саставити програм који омогућује унос целих бројева све док препозна број чији квадрат припада првој стотини.
+
+  int a;
+
+  do
+  {
+    printf("unesi broj: ");
+    scanf("%d", &a);
+  } while (a * a > 100);
+
+------------------------------------------------------
+  // 6.4. Саставити програм којим се исписују сви степени броја 2 који нису већи од унете вредности променљиве границе, а која је већа од броја 2.
+
+  int granica, stepen = 1;
+  printf("granica: ");
+  scanf("%d", &granica);
+  if (granica >= 2)
+  {
+    do
+    {
+      stepen *= 2;
+      printf("%d ", stepen);
+    } while (stepen <= granica / 2);
+  }
+  else
+    printf(" Konju ");
+------------------------------------------------------
+  // 6.5
+  int n = 1;
+  float eps, clan = 1, s = 1, z = -1;
+  printf("eps: ");
+  scanf("%f", &eps);
+
+  do
+  {
+    clan = (float)z / (2 * n + 1);
+    s += clan;
+    z = -z;
+    n++;
+  } while (fabs(clan) > eps);
+  printf("%f", 4 * s);
+  -----------------------------------------------------
+  int n, granicaStart, granicaEnd, br = 0;
+  while (granicaStart < 0 || granicaEnd > 100 || granicaStart > 100 || granicaStart > granicaEnd)
+  {
+    printf("Unesi validnu granicu: ");
+    scanf("%d %d", &granicaStart, &granicaEnd);
+  }
+  n = granicaStart;
+  do
+  {
+    if (n % 4 == 0)
+    {
+      printf("%d ", n);
+      br++;
+    }
+    if (br % 10 == 0)
+      printf("\n");
+    n++;
+  } while (n > granicaStart && n <= granicaEnd);
+  --------------------------------------------------------
+  // 6.9. Саставити програм којим се врши сабирање и исписује сума свих троцифрених бројева дељивих са 64. Колико има таквих бројева ?
+  int a = 100, br = 0;
+  float s = 0;
+  do
+  {
+    if (a % 64 == 0)
+    {
+      br++;
+      s += a;
+    }
+
+    a++;
+  } while (a < 999);
+  printf("suma: %.0f\nkolko ih ima: %d", s, br);
+ --------------------------------------------------------
+
+  // ako se sa ulaza ucitava trocifren prirodan broj n napisati program kojim se odredjuje najmanji moguci broj m od cifara broja n;
+  // primer ako je n=312 tada je n=123, ako je n=252 tada je n=225
+
+
+// 2. ZADATAK 1 list
+  // ispisati sve magicne brojeve do 1000. magican broj je onaj koji je jednak sumi svojih delitelja iskljucujuci njega npr 6=3+2+1
+
+  int i, n, j, s;
+  printf("niz n: ");
+  scanf("%d", &n);
+
+  for (i = 1; i <= n; i++)
+  {
+    s = 0;
+    for (j = 1; j < i; j++)
+    {
+      if (i % j == 0)
+      {
+        s += j;
+      }
+    }
+    if (s == i)
+    {
+      printf("%d\n ", i);
+    }
+  }
+
+// 3. ZADATAK 1 list
+  int n, z = 1;
+  float q = 1, q2 = 1, s = 0;
+  printf("n: ");
+  scanf("%d", &n);
+
+  for (int i = 1; i <= n; i++)
+  {
+    q = pow((3 * i), 2);
+    q2 = i / q;
+    s += (float)z * q2;
+    z = -z;
+  }
+  printf("%f\n", s);
+ ----------------------------------------
+//1. ZADATAK 2 list
+  // horizontala i vertikala sahovske table su numerisane od 1 do 8 ako se ucivataju parovi tacaka (a,b) i (c,d) koji oznacavaju dva polja gde je prvi broj u paru horizontala, a drugi vertikala, ispisati da li su polja iste boje.
+
+// 18 28 38 48 58 68 78 88
+// 17 27 37 47 57 67 77 87
+// 16 26 36 46 56 66 76 86
+// 15 25 35 45 55 65 75 85
+// 14 24 34 44 54 64 74 84
+// 13 23 33 43 53 63 73 83
+// 12 22 32 42 52 62 72 82
+// 11 21 31 41 51 61 71 81
+
+
+
+  int a, b, c, d;
+
+  printf("unesi a i b: ");
+  scanf("%d %d", &a, &b);
+  printf("unesi c i d: ");
+  scanf("%d %d", &c, &d);
+
+  if ((a + b) % 2 == (c + d) % 2)
+  {
+    printf("Iste su boje looool");
+  }
+  else
+  {
+    printf("ne kenjaj");
+  }
+
+  //2. ZADATAK 2list
+  // napisati program kojim se za dati prirodan broj x formira broj y sastavljen od istih cifara ali u obrnutom poretku, a zatim ispisuje da li je broj x+y potpun kvadrat
+
+  int x, y = 0, z;
+
+  printf("ispisi x: ");
+  scanf("%d", &x);
+  z = x;
+  while (z > 0)
+  {
+    y *= 10 + z % 10;
+    z /= 10;
+  }
+  int pomoc = sqrt(y + x);
+  if (pomoc % 10 != 0)
+    printf("Brao");
+  else
+    printf("Jok vala");
+
+//3. ZADATAK 2 list
+  // ispisati program kojim se izracunava: S=1! +3! + 5! n mora biti neparan broj u suprotnom je s=0
+
+  int n, f = 1;
+  float s = 0;
+  printf("n: ");
+  scanf("%d", &n);
+
+  for (int i = 1; i <= n; i += 2)
+  {
+    f = 1;
+    for (int j = 1; j <= i; j++)
+    {
+      f *= j;
+    }
+    s += f;
+  }
+  printf("%.2f\n ", s);
+----------------------------------------------- */
   return 0;
 }
