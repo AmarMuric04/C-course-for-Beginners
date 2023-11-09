@@ -1417,48 +1417,91 @@ WHILE петље.
 
 -------------------------------------------*/
 
-  float s = 0;
-  int n, k, i, j, pomocna = 0, f = 1;
-  scanf("%d", &n);
-  k = n - 5;
-  for (i = 1; i <= n; i++)
-  {
-    pomocna += i;
-  }
-  if (k > 0)
-  {
-    for (j = 1; j <= k; j++)
-    {
-      f *= j;
-    }
-  }
-  if (k < 0)
-  {
-    for (j = -1; j <= k; j--)
-    {
-      f *= j;
-    }
-  }
-  while (n == 5)
-  {
-    scanf("%d", &n);
-    k = n - 5;
-  }
-  s = (float)pomocna / f;
-  printf("%f", s);
+  //   float s = 0;
+  //   int n, k, i, j, pomocna = 0, f = 1;
+  //   scanf("%d", &n);
+  //   k = n - 5;
+  //   for (i = 1; i <= n; i++)
+  //   {
+  //     pomocna += i;
+  //   }
+  //   if (k > 0)
+  //   {
+  //     for (j = 1; j <= k; j++)
+  //     {
+  //       f *= j;
+  //     }
+  //   }
+  //   if (k < 0)
+  //   {
+  //     for (j = -1; j <= k; j--)
+  //     {
+  //       f *= j;
+  //     }
+  //   }
+  //   while (n == 5)
+  //   {
+  //     scanf("%d", &n);
+  //     k = n - 5;
+  //   }
+  //   s = (float)pomocna / f;
+  //   printf("%f", s);
+  //   return 0;
+  // }
+
+  //   int a1 = 1, a2 = 2, q1 = 0, q2 = 0, ai = 1, n = 20, i;
+
+  //   printf("%d %d", a1, a2);
+
+  //   for (i = 1; i <= n - 2; i++)
+  //   {
+  //     q1 = (3 * ai) - 1;
+  //     q2 = (2 * ai) - 2;
+  //     ai = q1 - q2;
+  //     printf(" %d", ai);
+  //   }
+  // 1. ZADATAK KOLOKVIJUM GRUPA 1
+  //  int x, y;
+  //  scanf("%d", &x);
+  //  if (x > 10 && x < -5)
+  //  {
+  //    printf("Greska.");
+  //  }
+
+  // if (x > -2 && x < 2)
+  // {
+  //   printf("%d", 5 * (x * x * x * x * x * x * x * x * x * x * x * x * x * x * x));
+  // }
+  // else if (x > 3 && x <= 7)
+  // {
+  //   printf("%d", (3 * x) - 1);
+  // }
+  // else
+  // {
+  //   printf("%d", sqrt((x * x * x) - 5));
+  // }
+  // int n, br50 = 0, br5075 = 0, br76 = 0, i, kg;
+  // printf("Koliko ima takmicara u klubu");
+  // scanf("%d", &n);
+  // for (i = 1; i <= n; i++)
+  // {
+  //   printf("Kilaza: ");
+  //   scanf("%d", &kg);
+  //   if (kg < 50)
+  //   {
+  //     br50++;
+  //   }
+  //   else if (kg >= 50 && kg <= 75)
+  //   {
+  //     br5075++;
+  //   }
+  //   else if (kg > 75)
+  //   {
+  //     br76++;
+  //   }
+  // }
+  // printf("do 50: %d, od 50 do 75: %d, preko 75: %d", br50, br5075, br76);
+
+  
   return 0;
 }
-
-//   int a1 = 1, a2 = 2, q1 = 0, q2 = 0, ai = 1, n = 20, i;
-
-//   printf("%d %d", a1, a2);
-
-//   for (i = 1; i <= n - 2; i++)
-//   {
-//     q1 = (3 * ai) - 1;
-//     q2 = (2 * ai) - 2;
-//     ai = q1 - q2;
-//     printf(" %d", ai);
-//   }
-//   return 0;
-// }
