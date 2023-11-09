@@ -471,7 +471,87 @@ WHILE петље.
     i++;
   } while (i < 6);
   -------------------------------------
+//--------------------------------------------------------
+//1. ZADATAK
 
+  int h1, m1, s1, h2, m2, s2, q;
+  printf("U koliko sati, minuta i sekundi je avion poleteo?\n(h, m, s)\n");
+  scanf("%d %d %d", &h1, &m1, &s1);
+  printf("Koliko je avion proveo vremena u vazduhu u seknudama?\n");
+  scanf("%d", &q);
+
+  s2 = (q + s1) % 60;
+  m2 = (q + s1) / 60;
+  h2 = (m2 + m1) / 60;
+  m2 = (m2 + m1) % 60;
+  h2 = (h2 + h1) % 60;
+
+  printf("Avion ce selteti u %dh : %dm : %ds", h2, m2, s2);
+
+//---------------------------------------------------------
+//2. ZADATAK
+  int p, n, q, q2;
+  float S = 0;
+  float Sn = 0;
+  printf("unesi p i niz n\n");
+  scanf("%d %d", &p, &n);
+
+  for (int i = 0; i <= p - 1; i++)
+  {
+    printf("Unesi broj: ");
+    scanf("%d", &q);
+    i < p - 1 ? S += q : -1;
+  }
+  for (int i = p + 1; i <= n; i++)
+  {
+    printf("Unesi broj: ");
+    scanf("%d", &q2);
+    Sn += q2;
+  }
+
+  S == Sn ? printf("\nNiz je usredjen.") : printf("\nNiz nije usredjen.");
+
+//------------------------------------------
+//3. ZADATAK
+
+  int a, b, i, br = 0;
+  printf("Unesi a i b\n");
+  scanf("%d %d", &a, &b);
+  if (a > 0 && b > 0)
+  {
+    if (a > b)
+    {
+      for (i = 1; i < a; i++)
+      {
+        if (a % i == 0 && b % i == 0 && i > 1)
+        {
+          br++;
+        }
+      }
+
+      br == 0
+          ? printf("Brojevi jesu uzajamno prosti.")
+          : printf("Brojevi nisu uzajamno prosti.");
+    }
+    else if (b > a)
+    {
+
+      for (i = 1; i < b; i++)
+      {
+        if (a % i == 0 && b % i == 0 && i > 1)
+        {
+          br++;
+        }
+      }
+
+      br == 0
+          ? printf("Brojevi jesu uzajamno prosti.")
+          : printf("Brojevi nisu uzajamno prosti.");
+    }
+  }
+  else
+    printf("Brojevi nisu prirodni.");
+-------------------------------------------------------
   int h, m, s, q;
 
   printf("Unesi sekunde");
