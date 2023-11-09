@@ -1502,6 +1502,24 @@ WHILE петље.
   // }
   // printf("do 50: %d, od 50 do 75: %d, preko 75: %d", br50, br5075, br76);
 
-  
+  int a, n, f = 1, z = 1, x;
+  float eps, s = 0, clan, q1 = 0;
+  printf("a, x, n i eps: ");
+  scanf("%d %d %d %f", &a, &x, &n, &eps);
+
+  for (int i = 1; i <= n; i++)
+  {
+    f *= n;
+    q1 = a * (a - n + 1);
+    clan = (float)(q1 / f) * pow(x, i);
+    while (fabs(clan) > eps)
+    {
+      s += (z * clan);
+    }
+    printf("%.15f\n", s);
+    printf("%f\n", clan);
+    z = -z;
+  }
+
   return 0;
 }
