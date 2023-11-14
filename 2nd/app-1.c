@@ -1519,6 +1519,7 @@ WHILE петље.
       printf("%d", a * b * c);
   }
 
+//2. ZADATAK KOLOKVIJUM 3
   float s = 0, clan = 0;
   int x, n, pomocna = 0, pomocna2, z = 1;
   scanf("%d %d", &x, &n);
@@ -1535,9 +1536,9 @@ WHILE петље.
     z = -z;
   }
   printf("%.5f", s);
-  -*/
 
-  int m, n, k, s = 0, i = 123;
+//3. ZADATAK KOLOKVIJUM 3
+  int m, n, k, s = 0;
   scanf("%d %d", &m, &n);
 
   if (m > n)
@@ -1545,10 +1546,23 @@ WHILE петље.
     k = m;
     m = n;
     n = k;
-    for (m; m <= n; m++)
-    {
-    }
   }
+  for (m; m <= n; m++)
+  {
+    int l = m;
+
+    while (l > 0)
+    {
+      s = s + l % 10;
+      l /= 10;
+    }
+    if (s % 2 == 0)
+    {
+      printf("%d\n", m);
+    }
+    s = 0;
+  }
+-------------------------------*/
 
   return 0;
 }
