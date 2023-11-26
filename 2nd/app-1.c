@@ -1576,7 +1576,7 @@ WHILE петље.
 
     printf(" %d", a);
   }
-  ------------------------------*/
+  ------------------------------
   float s = 0;
   int n, k, i, j, pomocna = 0, f = 1;
   scanf("%d", &n);
@@ -1607,5 +1607,17 @@ WHILE петље.
 
   s = (float)pomocna / f;
   printf("%f", s);
+---------------------------*/
+  int n;
+  printf("n= ");
+  scanf("%d", &n);
+  for (int i = 1; i <= n; i++)
+  {
+    if (n % i == 0 && i != 1)
+    {
+      printf("%d ", i);
+      n = n / i;
+    }
+  }
   return 0;
 }
