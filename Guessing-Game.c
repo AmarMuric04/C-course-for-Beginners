@@ -17,7 +17,7 @@ int main()
     {
       if (i == 0)
       {
-        printf("Wrong!\nNo more guesses left,\nYou lost!");
+        printf("Wrong!\n0 guesses left,\nYou lost!");
         return;
       }
       else
