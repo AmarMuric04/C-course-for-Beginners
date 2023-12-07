@@ -1654,60 +1654,107 @@ int maximum(int a, int b)
 {
   return a > b ? a : b;
 }
-int main()
+
+#define MAX 100
+
+void stvaranjeMatrice(int vrsta, int kolona, int matrica[MAX][MAX])
 {
-  // int b = sabiranje(5, 6);
-  // printf("%d", b);
-
-  // int a, b;
-  // printf("Unesi a i b: ");
-  // scanf("%d %d", &a, &b);
-  // int z = sabiranje(a, kvadrat(b));
-  // printf("%d \n", z);
-
-  // float z2 = (float)oduzimanje(kub(a), deljenje(a, b));
-  // printf("%.2f \n", z2);
-
-  // int z3 = sabiranje(mnozenje(a, b), oduzimanje(5, b));
-  // printf("%d \n", z3);
-
-  /*--------------------------------------------
-  int a, b;
-  printf("Unesi a i b: ");
-  scanf("%d %d", &a, &b);
-
-  // int c = max(a, b);
-
-  // printf("Veci broj je %d", c);
-
-  int d, e;
-  printf("Dodatno: \nUnesi d i e: ");
-  scanf("%d %d", &d, &e);
-
-  int f = max(max(a, b), max(d, e));
-  printf("Najveci unet broj je %d", f);
-  ---------------------------*/
-  // MATRICE
-  /*-------------------------*/
-  int i, j, m, n, mat[100][100];
-  printf("Vrste i kolone: ");
-  scanf("%d %d", &m, &n);
-
-  for (i = 0; i < m; i++)
+  int i, j;
+  for (i = 0; i < vrsta; i++)
   {
-    for (j = 0; j < n; j++)
+    for (j = 0; j < kolona; j++)
     {
-      printf("Element[%d][%d]", i, j);
-      scanf("%d", &mat[i][j]);
+      printf("Unesite element [%d][%d]: ", i, j);
+      scanf("%d", &matrica[i][j]);
     }
   }
-  for (i = 0; i < m; i++)
+}
+
+void prikazivanjeMatrice(int vrste, int kolone, int matrica[MAX][MAX])
+{
+  for (int i = 0; i < vrste; i++)
   {
-    for (j = 0; j < n; j++)
+    for (int j = 0; j < kolone; j++)
     {
-      printf("%d ", mat[i][j]);
+      printf("%d ", matrica[i][j]);
     }
     printf("\n");
   }
+}
+
+int main()
+{
+  int vrste, kolone;
+  printf("Broj vrsta: ");
+  scanf("%d", &vrste);
+
+  printf("Broj kolona: ");
+  scanf("%d", &kolone);
+
+  if (vrste > MAX || kolone > MAX)
+  {
+    printf("Unesene dimenzije prelaze maksimalnu veličinu matrice.");
+    return -1;
+  }
+
+  int matrica[MAX][MAX];
+
+  stvaranjeMatrice(vrste, kolone, matrica);
+
+  prikazivanjeMatrice(vrste, kolone, matrica);
+
   return 0;
 }
+// int b = sabiranje(5, 6);
+// printf("%d", b);
+
+// int a, b;
+// printf("Unesi a i b: ");
+// scanf("%d %d", &a, &b);
+// int z = sabiranje(a, kvadrat(b));
+// printf("%d \n", z);
+
+// float z2 = (float)oduzimanje(kub(a), deljenje(a, b));
+// printf("%.2f \n", z2);
+
+// int z3 = sabiranje(mnozenje(a, b), oduzimanje(5, b));
+// printf("%d \n", z3);
+
+/*--------------------------------------------
+int a, b;
+printf("Unesi a i b: ");
+scanf("%d %d", &a, &b);
+
+// int c = max(a, b);
+
+// printf("Veci broj je %d", c);
+
+int d, e;
+printf("Dodatno: \nUnesi d i e: ");
+scanf("%d %d", &d, &e);
+
+int f = max(max(a, b), max(d, e));
+printf("Najveci unet broj je %d", f);
+---------------------------*/
+// MATRICE
+/*-------------------------*/
+// int i, j, m, n, mat[100][100];
+// printf("Vrste i kolone: ");
+// scanf("%d %d", &m, &n);
+
+// for (i = 0; i < m; i++)
+// {
+//   for (j = 0; j < n; j++)
+//   {
+//     printf("Element[%d][%d]", i, j);
+//     scanf("%d", &mat[i][j]);
+//   }
+// }
+// for (i = 0; i < m; i++)
+// {
+//   for (j = 0; j < n; j++)
+//   {
+//     printf("%d ", mat[i][j]);
+//   }
+//   printf("\n");
+// }
