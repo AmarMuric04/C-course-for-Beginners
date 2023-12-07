@@ -1862,25 +1862,113 @@ void ispisivanjeMatriceNaSpecificanNacin(int vrste, int kolone, int matrica[MAX]
   }
 }
 
-void deljenjeVrsteSaDijagonalnimElementom(int vrste, int kolone, int matrica[MAX][MAX])
+void deljenjeVrsteSaDijagonalnimElementom(int vrste, int kolone)
 {
-  int novonastalaMatrica[MAX][MAX];
+  float matrica[MAX][MAX], pomocna;
+  for (int i = 0; i < vrste; i++)
+    for (int j = 0; j < kolone; j++)
+    {
+      printf("element [%d][%d]", i, j);
+      scanf("%f", &matrica[i][j]);
+    }
+
+  for (int i = 0; i < vrste; i++)
+    for (int j = 0; j < kolone; j++)
+      printf("%.0f\n", matrica[i][j]);
+
   for (int i = 0; i < vrste; i++)
   {
-    printf("%d", matrica[i][i]);
-    for (int j = 0; j < vrste; j++)
+    for (int j = 0; j < kolone; j++)
     {
-      
+      if (matrica[i][i] != 0)
+      {
+        for (j = 0; j < vrste; j++)
+        {
+          pomocna = matrica[i][i];
+          matrica[i][j] /= pomocna;
+        }
+      }
+      else if (matrica[i][i] == 0)
+      {
+        for (j = 0; j < vrste; j++)
+        {
+          if (i == j)
+            matrica[i][j] = 1;
+          else
+            matrica[i][j] = 0;
+        }
+      }
     }
   }
-  // for (int i = 0; i < vrste; i++)
-  // {
-  //   for (int j = 0; j < vrste; j++)
-  //   {
-  //     printf("%d ", novonastalaMatrica[i][j]);
-  //   }
-  //   printf("\n");
-  // }
+  for (int i = 0; i < vrste; i++)
+  {
+    for (int j = 0; j < kolone; j++)
+      printf("%.2f ", matrica[i][j]);
+    printf("\n");
+  }
+}
+
+void menjanjeElemenataPoviseIIspodGlavneDijagonale(int vrste, int kolone, int matrica[MAX][MAX])
+{
+  int x;
+  printf("Unesi broj sa kojim zelis da uredis matricu: ");
+  scanf("%d", &x);
+  for (int i = 0; i < vrste; i++)
+  {
+    for (int j = 0; j < kolone; j++)
+    {
+      if (j > i)
+        matrica[i][j] += 2 * x;
+      if (i > j)
+        matrica[i][j] += x;
+    }
+  }
+
+  for (int i = 0; i < vrste; i++)
+  {
+    for (int j = 0; j < kolone; j++)
+      printf("%d ", matrica[i][j]);
+    printf("\n");
+  }
+}
+
+void zamenaDveVrste(int vrste, int kolone, int matrica[MAX][MAX])
+{
+  int prvaMatrica, drugaMatrica, pomocna;
+  printf("Izaberi broj matrice koju zelis da promenis: ");
+  scanf("%d", &prvaMatrica);
+  printf("Izaberi broj matrice sa kojom zelis prvu da promenis: ");
+  scanf("%d", &drugaMatrica);
+  for (int i = 0; i < vrste; i++)
+  {
+
+    if (prvaMatrica - 1 == i)
+    {
+      pomocna = drugaMatrica - 1;
+      for (int j = 0; j < kolone; j++)
+      {
+        printf("%d ", matrica[pomocna][j]);
+      }
+    }
+
+    if (drugaMatrica - 1 == i)
+    {
+      pomocna = prvaMatrica - 1;
+      for (int j = 0; j < kolone; j++)
+      {
+        printf("%d ", matrica[pomocna][j]);
+      }
+    }
+
+    if (i != prvaMatrica - 1 || i != drugaMatrica - 1)
+    {
+      for (int j = 0; j < kolone; j++)
+      {
+        printf("%da ", matrica[i][j]);
+      }
+      printf("\n");
+    }
+  }
 }
 
 int main()
@@ -1940,6 +2028,10 @@ int main()
 
   // ispisivanjeMatriceNaSpecificanNacin(vrste, kolone, matrica);
 
-  deljenjeVrsteSaDijagonalnimElementom(vrste, kolone, matrica);
+  // deljenjeVrsteSaDijagonalnimElementom(vrste, kolone);
+
+  // menjanjeElemenataPoviseIIspodGlavneDijagonale(vrste, kolone, matrica);
+
+  zamenaDveVrste(vrste, kolone, matrica);
   return 0;
 }
