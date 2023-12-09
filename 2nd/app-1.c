@@ -2583,6 +2583,57 @@ int Razliciti(const int niz[], int duzina)
   }
   return brojac;
 }
+
+double prosecnaOcena(int ocene[], int brojUcenika)
+{
+  double prosecnaOcena = 0, suma = 0;
+
+  for (int i = 0; i < brojUcenika; i++)
+    suma += ocene[i];
+  return prosecnaOcena = (float)suma / brojUcenika;
+}
+
+double prosecnaOcenaPolozenih(int ocene[], int brojUcenika)
+{
+  int polozili = 0, sumaOcenaPolozenih = 0;
+  double prosecnaOcenaPolozenih;
+  for (int i = 0; i < brojUcenika; i++)
+    if (ocene[i] > 5)
+    {
+      polozili++;
+      sumaOcenaPolozenih += ocene[i];
+    }
+  prosecnaOcenaPolozenih = (float)sumaOcenaPolozenih / polozili;
+  return prosecnaOcenaPolozenih;
+}
+
+int brojPolozenih(int ocene[], int brojUcenika)
+{
+  int polozili = 0, sumaOcenaPolozenih = 0;
+  for (int i = 0; i < brojUcenika; i++)
+    if (ocene[i] > 5)
+      polozili++;
+  return polozili;
+}
+
+int brojNepolozenih(int ocene[], int brojUcenika)
+{
+  int nepolozili = 0, sumaOcenaPolozenih = 0;
+  for (int i = 0; i < brojUcenika; i++)
+    if (ocene[i] <= 5)
+      nepolozili++;
+  return nepolozili;
+}
+
+int veciOdProsecnog(int ocene[], int brojUcenika)
+{
+  int veciOdProsecnog = 0;
+  for (int i = 0; i < brojUcenika; i++)
+    if (ocene[i] > prosecnaOcena(ocene, brojUcenika))
+      veciOdProsecnog++;
+  return veciOdProsecnog;
+}
+
 int main()
 { /*
    int duzina;
@@ -2615,6 +2666,28 @@ int main()
   }
   printf("\n Broj razl. elemenata je %d", Razliciti(niz, duzina));
    -----------------------------------------------------------*/
+  int brojUcenika;
 
+  printf("Broj ucenika koji su polagali: ");
+  scanf("%d", &brojUcenika);
+
+  int ocene[brojUcenika];
+  for (int i = 0; i < brojUcenika; i++)
+  {
+    printf("Ocena ucenika br.%d: ", i + 1);
+    scanf("%d", &ocene[i]);
+    while (ocene[i] > 10 || ocene[i] < 0)
+    {
+      printf("[ERROR] Ocena mora biti izmedju 0 i 10!\n");
+
+      printf("Ocena ucenika br.%d: ", i + 1);
+      scanf("%d", &ocene[i]);
+    }
+  }
+  printf("Ukupna prosecna ocena: %.2f!\n", prosecnaOcena(ocene, brojUcenika));
+  printf("Prosecna ocena onih koji su polozili: %.2f!\n", prosecnaOcenaPolozenih(ocene, brojUcenika));
+  printf("Broj ucenika koji su polozili: %d\n", brojPolozenih(ocene, brojUcenika));
+  printf("Broj ucenika koji nisu polozili: %d\n", brojNepolozenih(ocene, brojUcenika));
+  printf("Veca ocena od prosecne: %d", veciOdProsecnog(ocene, brojUcenika));
   return 0;
 }
