@@ -4,10 +4,11 @@
 #include <ctype.h>
 #define pi 3.1415926
 #define max 100;
-
-// int main()
+#define MAX 100
+/*ZADACI DO FUNKCIJA
+int main()
 // {
-/*
+
  float a;
  printf("Unesite bilo koji realan broj: ");
  scanf("%f", &a);
@@ -1655,29 +1656,7 @@ scanf("%d %d", &d, &e);
 int f = max(max(a, b), max(d, e));
 printf("Najveci unet broj je %d", f);
 ---------------------------*/
-// MATRICE
-/*-------------------------
-int i, j, m, n, mat[100][100];
-printf("Vrste i kolone: ");
-scanf("%d %d", &m, &n);
-
-for (i = 0; i < m; i++)
-{
-  for (j = 0; j < n; j++)
-  {
-    printf("Element[%d][%d]", i, j);
-    scanf("%d", &mat[i][j]);
-  }
-}
-for (i = 0; i < m; i++)
-{
-  for (j = 0; j < n; j++)
-  {
-    printf("%d ", mat[i][j]);
-  }
-  printf("\n");
-}
-*/
+/*FUNKCIJE
 int sabiranje(int a, int b)
 {
   return a + b;
@@ -1702,13 +1681,32 @@ int kub(int a)
 {
   return a * a * a;
 }
-
 int maximum(int a, int b)
 {
   return a > b ? a : b;
 }
+*/
+/*MATRICE
+int i, j, m, n, mat[100][100];
+printf("Vrste i kolone: ");
+scanf("%d %d", &m, &n);
 
-#define MAX 100
+for (i = 0; i < m; i++)
+{
+  for (j = 0; j < n; j++)
+  {
+    printf("Element[%d][%d]", i, j);
+    scanf("%d", &mat[i][j]);
+  }
+}
+for (i = 0; i < m; i++)
+{
+  for (j = 0; j < n; j++)
+  {
+    printf("%d ", mat[i][j]);
+  }
+  printf("\n");
+}
 
 void stvaranjeMatrice(int vrsta, int kolona, int matrica[MAX][MAX])
 {
@@ -1950,8 +1948,7 @@ void zamenaDveVrste(int vrste, int kolone, int matrica[MAX][MAX])
         printf("%d ", matrica[pomocna][j]);
       }
     }
-
-    if (drugaMatrica - 1 == i)
+    else if (drugaMatrica - 1 == i)
     {
       pomocna = prvaMatrica - 1;
       for (int j = 0; j < kolone; j++)
@@ -1959,14 +1956,132 @@ void zamenaDveVrste(int vrste, int kolone, int matrica[MAX][MAX])
         printf("%d ", matrica[pomocna][j]);
       }
     }
-
-    if (i != prvaMatrica - 1 || i != drugaMatrica - 1)
+    else if (i != drugaMatrica - 1 && i != prvaMatrica - 1)
     {
       for (int j = 0; j < kolone; j++)
       {
-        printf("%da ", matrica[i][j]);
+        printf("%d ", matrica[i][j]);
       }
       printf("\n");
+    }
+  }
+}
+
+void transoponvanjeMatrice(int vrste, int kolone, int matrica[MAX][MAX])
+{
+  printf("Transponovanje je kada svaka vrsta postane kolona.");
+  for (int i = 0; i < vrste; i++)
+  {
+    for (int j = 0; j < kolone; j++)
+    {
+      printf("%d ", matrica[j][i]);
+    }
+    printf("\n");
+  }
+}
+
+void transponovanjeMatriceBezFunkcija()
+{
+  int vrste, kolone, matrica[MAX][MAX];
+  printf("Broj vrsta: ");
+  scanf("%d", &vrste);
+  printf("Broj kolona: ");
+  scanf("%d", &kolone);
+
+  // Stvaranje matrice
+  for (int i = 0; i < vrste; i++)
+    for (int j = 0; j < vrste; j++)
+    {
+      printf("Unesi element [%d][%d]", i, j);
+      scanf("%d", &matrica[i][j]);
+    }
+
+  // Prikazivanje matrice
+  for (int i = 0; i < vrste; i++)
+  {
+    for (int j = 0; j < vrste; j++)
+    {
+      printf("%d ", matrica[i][j]);
+    }
+    printf("\n");
+  }
+
+  // Transponovanje matrice
+  for (int i = 0; i < vrste; i++)
+  {
+    for (int j = 0; j < vrste; j++)
+    {
+      printf("%d ", matrica[j][i]);
+    }
+    printf("\n");
+  }
+}
+
+void najveciINajmanjiElementUMatrici(int vrste, int kolone, int matrica[MAX][MAX])
+{
+  int najveciBroj,
+      najmanjiBroj,
+      nizNajvecihBrojeva[MAX], nizNajmanjihBrojeva[MAX], i = 0, j = 0;
+
+  for (i = 0; i < vrste; i++)
+  {
+    najmanjiBroj = matrica[i][0];
+    najveciBroj = matrica[i][0];
+    for (j = 0; j < kolone; j++)
+    {
+      if (matrica[i][j] > najveciBroj)
+        najveciBroj = matrica[i][j];
+      if (matrica[i][j] < najmanjiBroj)
+        najmanjiBroj = matrica[i][j];
+    }
+    nizNajmanjihBrojeva[i] = najmanjiBroj;
+
+    nizNajvecihBrojeva[i] = najveciBroj;
+  }
+
+  for (i = 0; i < vrste; i++)
+  {
+    printf("Najveci element u vrsti broj %d: %d \n", i + 1, nizNajvecihBrojeva[i]);
+  }
+  for (i = 0; i < vrste; i++)
+  {
+    printf("Najmanji elemnt u vrsti broj %d: %d \n", i + 1, nizNajmanjihBrojeva[i]);
+  }
+}
+
+void mnozenjeMatrica()
+{
+  int i, j, matrica1[MAX][MAX], matrica2[MAX][MAX];
+
+  int vrste1, vrste2, kolone1, kolone2;
+  if (kolone1 == vrste2)
+  {
+    printf("Unesi vrste i kolone prve matrice");
+    scanf("%d %d", &vrste1, &kolone1);
+    printf("Unesi vrste i kolone druge matrice");
+    scanf("%d %d", &vrste2, &kolone2);
+
+    for (i = 0; i < vrste1; i++)
+      for (j = 0; j < kolone1; j++)
+      {
+        printf("Prva matrica element [%d][%d]: ");
+        scanf("%d %d", &matrica1[i][j]);
+      }
+    for (i = 0; i < vrste1; i++)
+      for (j = 0; j < kolone1; j++)
+      {
+        printf("Prva matrica element [%d][%d]: ");
+        scanf("%d %d", &matrica1[i][j]);
+      }
+  }
+  else
+    printf("Matrice nisu u dobrom formatu za mnozenje (nxm mxk)");
+
+  int pomnozeneMatrice[MAX][MAX];
+  for (i = 0; i < vrste1; i++)
+  {
+    for (j = 0; j < kolone2; j++)
+    {
     }
   }
 }
@@ -2032,6 +2147,474 @@ int main()
 
   // menjanjeElemenataPoviseIIspodGlavneDijagonale(vrste, kolone, matrica);
 
-  zamenaDveVrste(vrste, kolone, matrica);
+  // zamenaDveVrste(vrste, kolone, matrica);
+
+  // transoponvanjeMatrice(vrste, kolone, matrica);
+
+  // transponovanjeMatriceBezFunkcija();
+
+  najveciINajmanjiElementUMatrici(vrste, kolone, matrica);
+  return 0;
+}
+*/
+/*NIZOVI
+
+int main()
+{
+  int n;
+  printf("Predvidjena duzina niza?\n");
+  scanf("%d", &n);
+
+  int niz[n];
+  for (int i = 1; i <= n; i++)
+  {
+    printf("Unesi element no.%d: ", i);
+    scanf("%d", &niz[i]);
+  }
+  for (int i = n; i > 0; i--)
+    printf("%d ", niz[i]);
+-------------------------------------------------
+  int n, suma = 0;
+  printf("Predvidjena duzina niza?\n");
+  scanf("%d", &n);
+  int niz[n];
+  int duzina = sizeof(niz) / sizeof(niz[0]);
+
+  for (int i = 1; i <= n; i++)
+  {
+    printf("Unesi element no.%d: \n", i);
+    scanf("%d", &niz[i]);
+    suma += niz[i];
+  }
+  printf("Duzina niza: %d", duzina);
+  printf("Artitmeticka sredina niza je: %.2f\n", (float)suma / duzina);
+---------------------------------------------------
+  int n, suma = 0;
+  printf("Predvidjena duzina niza?\n");
+  scanf("%d", &n);
+  int niz[n], deljivisa3 = 0;
+  int duzina = sizeof(niz) / sizeof(niz[0]);
+
+  for (int i = 1; i <= n; i++)
+  {
+    printf("Unesi element no.%d: ", i);
+    scanf("%d", &niz[i]);
+    if (niz[i] % 3 == 0)
+    {
+      suma += niz[i];
+      deljivisa3++;
+    }
+  }
+
+  printf("Brojevi iz niza koji su deljivi sa 3: %d\n", deljivisa3);
+  printf("Artitmeticka sredina niza je: %.2f\n", (float)suma / deljivisa3);
+---------------------------------------------------
+  int n, sumaParnih = 0, sumaNeparnih = 0;
+  int sumaParnihIndeksa = 0, sumaNeparnihIndeksa = 0;
+  printf("Predvidjena duzina niza?\n");
+  scanf("%d", &n);
+  int niz[n];
+  int duzina = sizeof(niz) / sizeof(niz[0]);
+
+  for (int i = 1; i <= n; i++)
+  {
+    printf("Unesi element no.%d: ", i);
+    scanf("%d", &niz[i]);
+    if (i % 2 == 0)
+      sumaParnihIndeksa += niz[i];
+    else
+      sumaNeparnihIndeksa += niz[i];
+    if (niz[i] % 2 == 0)
+      sumaParnih += niz[i];
+    else
+      sumaNeparnih += niz[i];
+  }
+  printf("Suma parnih: %d\n", sumaParnih);
+  printf("Suma neparnih: %d\n", sumaNeparnih);
+  printf("Suma parnih indeksa: %d\n", sumaParnihIndeksa);
+  printf("Suma neparnih indeksa: %d\n", sumaNeparnihIndeksa);
+---------------------------------------------------
+  int n;
+  printf("Duzina oba niza: ");
+  scanf("%d", &n);
+
+  int niz1[n], niz2[n], suma = 0;
+
+  for (int i = 1; i <= 2; i++)
+  {
+    if (i == 1)
+    {
+      for (int j = 0; j < n; j++)
+      {
+        printf("element  no.%d prvog niza: ", j);
+        scanf("%d", &niz1[j]);
+      }
+    }
+    else
+      for (int j = 0; j < n; j++)
+      {
+        printf("element no.%d drugog niza: ", j);
+        scanf("%d", &niz2[j]);
+      }
+  }
+  for (int i = 0; i < n; i++)
+    suma += niz1[i] * niz2[i];
+
+  printf("Suma: %d", suma);
+---------------------------------------------------
+  int duzina1, duzina2;
+  printf("Duzina prvog niza: ");
+  scanf("%d", &duzina1);
+  printf("Duzina drugog niza: ");
+  scanf("%d", &duzina2);
+
+  int niz1[duzina1], niz2[duzina2], niz3[duzina1 + duzina2];
+
+  for (int i = 1; i <= 2; i++)
+  {
+    if (i == 1)
+    {
+      for (int j = 0; j < duzina1; j++)
+      {
+        printf("element  no.%d prvog niza: ", j);
+        scanf("%d", &niz1[j]);
+        niz3[j] = niz1[j];
+      }
+    }
+    else
+      for (int j = 0; j < duzina2; j++)
+      {
+        printf("element no.%d drugog niza: ", j);
+        scanf("%d", &niz2[j]);
+        niz3[j + duzina1] = niz2[j];
+      }
+  }
+  for (int i = 0; i < duzina1 + duzina2; i++)
+    printf("%d ", niz3[i]);
+---------------------------------------------------
+  int duzina;
+  printf("Duzina prvog niza: ");
+  scanf("%d", &duzina);
+
+  int niz1[duzina], niz2[duzina], niz3[duzina];
+
+  for (int i = 1; i <= 2; i++)
+  {
+    if (i == 1)
+    {
+      for (int j = 0; j < duzina; j++)
+      {
+        printf("element  no.%d prvog niza: ", j);
+        scanf("%d", &niz1[j]);
+      }
+    }
+    else
+      for (int j = 0; j < duzina; j++)
+      {
+        printf("element no.%d drugog niza: ", j);
+        scanf("%d", &niz2[j]);
+        niz3[j] = niz1[j] + niz2[j];
+      }
+  }
+  for (int i = 0; i < duzina; i++)
+    printf("%d ", niz3[i]);
+---------------------------------------------------
+  int duzina;
+  printf("Duzina prvog niza: ");
+  scanf("%d", &duzina);
+
+  int niz1[duzina], niz2[duzina];
+  float niz3[duzina];
+
+  for (int i = 1; i <= 2; i++)
+  {
+    if (i == 1)
+    {
+      for (int j = 0; j < duzina; j++)
+      {
+        printf("element  no.%d prvog niza: ", j);
+        scanf("%d", &niz1[j]);
+      }
+    }
+    else
+      for (int j = 0; j < duzina; j++)
+      {
+        printf("element no.%d drugog niza: ", j);
+        scanf("%d", &niz2[j]);
+      }
+  }
+  for (int i = 0; i < duzina; i++)
+  {
+    niz3[i] = ((float)kub(niz1[i]) / 3) + (2 * niz1[i] * niz2[i]);
+    printf("%.2f ", niz3[i]);
+  }
+---------------------------------------------------
+  int duzina;
+  printf("Duzina prvog niza: ");
+  scanf("%d", &duzina);
+
+  int niz1[duzina], niz2[duzina], niz3[duzina];
+
+  for (int i = 1; i <= 2; i++)
+  {
+    if (i == 1)
+    {
+      for (int j = 0; j < duzina; j++)
+      {
+        printf("element  no.%d prvog niza: ", j);
+        scanf("%d", &niz1[j]);
+      }
+    }
+    else
+      for (int j = 0; j < duzina; j++)
+      {
+        printf("element no.%d drugog niza: ", j);
+        scanf("%d", &niz2[j]);
+      }
+  }
+  for (int i = 0; i < duzina; i++)
+  {
+    niz3[i] = niz1[i] + niz2[duzina - i - 1];
+    printf("%d ", niz3[i]);
+  }
+---------------------------------------------------
+  int duzina1, duzina2, brojacParnih = 0;
+  printf("Duzina prvog niza: ");
+  scanf("%d", &duzina1);
+  printf("Duzina drugog niza: ");
+  scanf("%d", &duzina2);
+
+  int niz1[duzina1], niz2[duzina2];
+
+  for (int i = 1; i <= 2; i++)
+  {
+    if (i == 1)
+    {
+      for (int j = 0; j < duzina1; j++)
+      {
+        printf("element  no.%d prvog niza: ", j);
+        scanf("%d", &niz1[j]);
+        if (niz1[j] % 2 == 0)
+          brojacParnih++;
+      }
+    }
+    else
+      for (int j = 0; j < duzina2; j++)
+      {
+        printf("element no.%d drugog niza: ", j);
+        scanf("%d", &niz2[j]);
+        if (niz2[j] % 2 == 0)
+          brojacParnih++;
+      }
+  }
+  int niz3[brojacParnih], n = 0;
+  for (int i = 0; i < duzina1; i++)
+  {
+    if (niz1[i] % 2 == 0)
+    {
+      niz3[n] = niz1[i];
+      n++;
+    }
+  }
+  for (int i = 0; i < duzina2; i++)
+  {
+    if (niz2[i] % 2 == 0)
+    {
+      niz3[n] = niz2[i];
+      n++;
+    }
+  }
+  printf("B:%d \n", brojacParnih);
+
+  for (int i = 0; i < brojacParnih; i++)
+  {
+    printf("%d ", niz3[i]);
+  }
+---------------------------------------------------
+  int duzina;
+  printf("Duzina prvog niza: ");
+  scanf("%d", &duzina);
+
+  int niz1[duzina], niz2[duzina], niz3[duzina];
+
+  for (int i = 1; i <= 2; i++)
+  {
+    if (i == 1)
+    {
+      for (int j = 0; j < duzina; j++)
+      {
+        printf("element  no.%d prvog niza: ", j);
+        scanf("%d", &niz1[j]);
+      }
+    }
+    else
+      for (int j = 0; j < duzina; j++)
+      {
+        printf("element no.%d drugog niza: ", j);
+        scanf("%d", &niz2[j]);
+      }
+  }
+  for (int i = 0; i < duzina; i++)
+  {
+    if (niz1[i] < niz2[i])
+      niz3[i] = niz1[i];
+    else if (niz2[i] < niz1[i])
+      niz3[i] = niz2[i];
+    else if (niz2[i] == niz1[i])
+      niz3[i] = 0;
+    printf("%d ", niz3[i]);
+  }
+---------------------------------------------------
+  int duzina, manjiOd0 = 0, veciOdNula = 0, n = 0, m = 0;
+  printf("Duzina niza: ");
+  scanf("%d", &duzina);
+
+  int niz1[duzina];
+
+  for (int i = 0; i < duzina; i++)
+  {
+    printf("element  no.%d: ", i);
+    scanf("%d", &niz1[i]);
+    if (niz1[i] < 0)
+      manjiOd0++;
+    else
+      veciOdNula++;
+  }
+
+  int niz2[manjiOd0], niz3[veciOdNula];
+
+  for (int i = 0; i < duzina; i++)
+  {
+    if (niz1[i] < 0)
+    {
+      niz2[n] = niz1[i];
+      n++;
+    }
+    else
+    {
+      niz3[m] = niz1[i];
+      m++;
+    }
+  }
+
+  for (int i = 0; i < veciOdNula; i++)
+    printf("0 ili veci: %d \n", niz3[i]);
+
+  for (int i = 0; i < manjiOd0; i++)
+    printf("Manji od 0: %d \n", niz2[i]);
+
+------------------------------------------------
+int duzina;
+printf("Duzina niza: ");
+scanf("%d", &duzina);
+
+int niz1[duzina], suma = 0;
+
+for (int i = 0; i < duzina; i++)
+{
+  printf("element  no.%d: ", i);
+  scanf("%d", &niz1[i]);
+  suma += niz1[i];
+}
+float artitmeticka = (float)suma / duzina;
+int veciOdArtitmeticke = 0, n = 0;
+
+for (int i = 0; i < duzina; i++)
+{
+  if (niz1[i] > artitmeticka)
+    veciOdArtitmeticke++;
+}
+float niz2[veciOdArtitmeticke];
+for (int i = 0; i < duzina; i++)
+{
+  if (niz1[i] > artitmeticka)
+  {
+    niz2[n] = niz1[i];
+    printf("%.2f ", niz2[n]);
+    n++;
+  }
+}
+----------------------------------------
+  int duzina;
+  printf("Duzina niza: ");
+  scanf("%d", &duzina);
+
+  int niz1[duzina], niz2[duzina];
+  for (int i = 0; i < duzina; i++)
+  {
+    printf("Element %d: ", i);
+    scanf("%d", &niz1[i]);
+  }
+
+  for (int i = 0; i < duzina; i++)
+  {
+    niz2[i] = 0;
+    for (int j = 0; j < i + 1; j++)
+    {
+      niz2[i] += niz1[j];
+    }
+  }
+  for (int i = 0; i < duzina; i++)
+    printf("%d ", niz2[i]);
+----------------------------------------
+
+  return 0;
+} */
+// NIZOVI I FUNKCIJE
+
+double mnozenjeSkalara(int duzina, double niz1[], double niz2[])
+{
+  double suma = 0;
+  for (int i = 0; i < duzina; i++)
+    suma += niz1[i] * niz2[i];
+  return suma;
+}
+
+int Razliciti(const int niz[], int duzina)
+{
+  int i, j, brojac = 0;
+  for (i = 0; i < duzina; i++)
+  {
+    for (j = 0; j < i && niz[j] != niz[i]; j++)
+      ;
+
+    if (j == i)
+      brojac++;
+  }
+  return brojac;
+}
+int main()
+{ /*
+   int duzina;
+   printf("Unesite duzinu niza: ");
+   scanf("%d", &duzina);
+
+   double niz1[MAX], niz2[MAX];
+   for (int j = 0; j < duzina; j++)
+   {
+     printf("Prvi niz element %d: ", j + 1);
+     scanf("%lf", &niz1[j]);
+   }
+   for (int j = 0; j < duzina; j++)
+   {
+     printf("Prvi niz element %d: ", j + 1);
+     scanf("%lf", &niz2[j]);
+   }
+
+   printf("Suma skalara je: %.2f ", mnozenjeSkalara(duzina, niz1, niz2));
+   -----------------------------------------------------------
+
+  int niz[MAX], duzina;
+  printf("Duzina niza: ");
+  scanf("%d", &duzina);
+
+  for (int i = 0; i < duzina; i++)
+  {
+    printf("Element br. %d: ", i + 1);
+    scanf("%d", &niz[i]);
+  }
+  printf("\n Broj razl. elemenata je %d", Razliciti(niz, duzina));
+   -----------------------------------------------------------*/
+
   return 0;
 }
