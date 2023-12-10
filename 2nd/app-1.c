@@ -2736,7 +2736,7 @@ int main()
   return 0;
   }
   */
-/*PRETRAZIVANJE NIZOVA
+// PRETRAZIVANJE NIZOVA
 void trazenjeBroja(int niz[], int duzina, int trazen)
 {
   int postoji = 0;
@@ -2786,230 +2786,230 @@ void binarnoTrazenje(int i, int niz[], int trazeni, int duzina)
 
 int main()
 {
+  /*
+   int duzina;
+   printf("Duzina oba niza: ");
+   scanf("%d", &duzina);
 
- int duzina;
- printf("Duzina oba niza: ");
- scanf("%d", &duzina);
+   int niz[duzina];
 
- int niz[duzina];
-
- for (int i = 0; i < duzina; i++)
- {
-   printf("Element br.%d: ", i + 1);
-   scanf("%d", &niz[i]);
- }
-
- int najveci = niz[0], pozicija;
- for (int i = 0; i < duzina; i++)
-   if (niz[i] > najveci)
+   for (int i = 0; i < duzina; i++)
    {
-     najveci = niz[i];
-     pozicija = i;
+     printf("Element br.%d: ", i + 1);
+     scanf("%d", &niz[i]);
    }
- printf("Najveci element niza je %d, na poziciji %d", najveci, pozicija + 1);
-  -----------------------------------------------------------
- int duzina;
- printf("Duzina oba niza: ");
- scanf("%d", &duzina);
 
- int niz[duzina];
+   int najveci = niz[0], pozicija;
+   for (int i = 0; i < duzina; i++)
+     if (niz[i] > najveci)
+     {
+       najveci = niz[i];
+       pozicija = i;
+     }
+   printf("Najveci element niza je %d, na poziciji %d", najveci, pozicija + 1);
+    -----------------------------------------------------------
+   int duzina;
+   printf("Duzina oba niza: ");
+   scanf("%d", &duzina);
 
- for (int i = 0; i < duzina; i++)
- {
-   printf("Element br.%d: ", i + 1);
-   scanf("%d", &niz[i]);
- }
+   int niz[duzina];
 
- int najveci = niz[0], najmanji = niz[0];
+   for (int i = 0; i < duzina; i++)
+   {
+     printf("Element br.%d: ", i + 1);
+     scanf("%d", &niz[i]);
+   }
 
- for (int i = 0; i < duzina; i++)
- {
-   if (niz[i] > najveci)
-     najveci = niz[i];
-   if (niz[i] < najmanji)
-     najmanji = niz[i];
- }
- printf("Specijalni brojevi su: ");
- for (int i = 0; i < duzina; i++)
- {
-   if (niz[i] < najveci / 2 && niz[i] > najmanji * 2)
-     printf("%d ", niz[i]);
- }
-  -----------------------------------------------------------
-  int duzina;
-  scanf("%d", &duzina);
-  int niz[duzina];
+   int najveci = niz[0], najmanji = niz[0];
 
-  for (int i = 0; i < duzina; i++)
-    scanf("%d", &niz[i]);
+   for (int i = 0; i < duzina; i++)
+   {
+     if (niz[i] > najveci)
+       najveci = niz[i];
+     if (niz[i] < najmanji)
+       najmanji = niz[i];
+   }
+   printf("Specijalni brojevi su: ");
+   for (int i = 0; i < duzina; i++)
+   {
+     if (niz[i] < najveci / 2 && niz[i] > najmanji * 2)
+       printf("%d ", niz[i]);
+   }
+    -----------------------------------------------------------
+    int duzina;
+    scanf("%d", &duzina);
+    int niz[duzina];
 
-  int najveci, brojac;
+    for (int i = 0; i < duzina; i++)
+      scanf("%d", &niz[i]);
 
-  for (int i = 0; i < duzina; i++)
-    if (niz[i] % 2 == 0)
-    {
-      najveci = niz[i];
-      break;
-    }
+    int najveci, brojac;
 
-  for (int i = 0; i < duzina; i++)
-    if (niz[i] > najveci && niz[i] % 2 == 0)
-    {
-      najveci = niz[i];
-      brojac++;
-    }
-  if (brojac != 0)
-    printf("Najveci parni element je %d", najveci);
-  else
-    printf("Niz nema parnih elemenata.");
-  -----------------------------------------------------------
-  int duzina;
+    for (int i = 0; i < duzina; i++)
+      if (niz[i] % 2 == 0)
+      {
+        najveci = niz[i];
+        break;
+      }
 
-  printf("Unesi duzinu niza (min. 2): ");
-  scanf("%d", &duzina);
-  while (duzina < 2)
-  {
+    for (int i = 0; i < duzina; i++)
+      if (niz[i] > najveci && niz[i] % 2 == 0)
+      {
+        najveci = niz[i];
+        brojac++;
+      }
+    if (brojac != 0)
+      printf("Najveci parni element je %d", najveci);
+    else
+      printf("Niz nema parnih elemenata.");
+    -----------------------------------------------------------
+    int duzina;
+
     printf("Unesi duzinu niza (min. 2): ");
     scanf("%d", &duzina);
-  }
-  int niz[duzina];
-  for (int i = 0; i < duzina; i++)
-    scanf("%d", &niz[i]);
-
-  int najveciParniIndeks = niz[0], pozicija;
-
-  for (int i = 0; i < duzina; i += 2)
-    if (niz[i] > najveciParniIndeks)
+    while (duzina < 2)
     {
-      najveciParniIndeks = niz[i];
-      pozicija = i;
+      printf("Unesi duzinu niza (min. 2): ");
+      scanf("%d", &duzina);
     }
+    int niz[duzina];
+    for (int i = 0; i < duzina; i++)
+      scanf("%d", &niz[i]);
 
-  printf("Najveci parni element u nizu je: %d,\nNa poziciji: %d. (Niz racuna 0 kao prvi element)", najveciParniIndeks, pozicija);
-  -----------------------------------------------------------
-  int duzina = 0;
-  while (duzina < 2)
-  {
-    printf("Unesi duzinu niza (min. 2): ");
-    scanf("%d", &duzina);
-  }
-  int niz[duzina];
-  for (int i = 0; i < duzina; i++)
-  {
-    printf("Element br.%d: ", i + 1);
-    scanf("%d", &niz[i]);
-  }
-  int brojac = 0;
-  for (int i = 3; i < duzina; i++)
-  {
-    if (niz[i] != niz[i - 2] + niz[i - 1])
-      brojac++;
-  }
+    int najveciParniIndeks = niz[0], pozicija;
 
-  if (brojac == 0)
-    printf("Niz je fibonacijev!!!");
-  else
-    printf("Niz nije fibonacijev!");
-  -----------------------------------------------------------
-  int duzina = 0;
+    for (int i = 0; i < duzina; i += 2)
+      if (niz[i] > najveciParniIndeks)
+      {
+        najveciParniIndeks = niz[i];
+        pozicija = i;
+      }
 
-  printf("Unesi duzinu niza: ");
-  scanf("%d", &duzina);
-  int niz[duzina];
-
-  for (int i = 0; i < duzina; i++)
-  {
-    printf("Element br.%d: ", i + 1);
-    scanf("%d", &niz[i]);
-  }
-  int trazeni, postoji = 0;
-  printf("Kojem broju trazite poziciju: ");
-  scanf("%d", &trazeni);
-  for (int i = 0; i < duzina; i++)
-  {
-    if (niz[i] == trazeni)
+    printf("Najveci parni element u nizu je: %d,\nNa poziciji: %d. (Niz racuna 0 kao prvi element)", najveciParniIndeks, pozicija);
+    -----------------------------------------------------------
+    int duzina = 0;
+    while (duzina < 2)
     {
-      postoji = 1;
-      printf("Trazeni element je na poziciji %d\n", i + 1);
+      printf("Unesi duzinu niza (min. 2): ");
+      scanf("%d", &duzina);
     }
-  }
-  if (!postoji)
-  {
-    printf("Trazeni element ne postoji u nizu!");
-  }
-  -----------------------------------------------------------
-  int duzina;
-  printf("Duzina niza: ");
-  scanf("%d", &duzina);
-
-  int niz[duzina];
-
-  for (int i = 0; i < duzina; i++)
-  {
-    printf("Element br.%d: ", i + 1);
-    scanf("%d", &niz[i]);
-  }
-  int trazeni;
-  printf("Kojem broju trazite poziciju: ");
-  scanf("%d", &trazeni);
-
-  trazenjeBroja(niz, duzina, trazeni);
-  -----------------------------------------------------------
-  // printf("%d", (21 / 2) + 1);
-  int duzina;
-  printf("Duzina niza: ");
-  scanf("%d", &duzina);
-
-  int niz[duzina];
-
-  for (int i = 0; i < duzina; i++)
-  {
-    printf("Element br.%d: ", i + 1);
-    scanf("%d", &niz[i]);
-    while (niz[i] <= niz[i - 1] && i != 0)
+    int niz[duzina];
+    for (int i = 0; i < duzina; i++)
     {
       printf("Element br.%d: ", i + 1);
       scanf("%d", &niz[i]);
     }
-  }
-  int i = duzina / 2;
-  printf("Trazenje pocinje od elementa br.%d \n", i + 1);
-  int trazeni, pronadjen = 0;
-  printf("Trazeni broj: ");
-  scanf("%d", &trazeni);
-
-  printf("I:%d ", niz[i]);
-
-  if (trazeni == niz[i])
-  {
-    pronadjen = 1;
-    printf("Trazeni broj se nalazi na mestu: %d", i + 1);
-  }
-  if (trazeni > niz[i])
-  {
-    for (i; i < duzina; i++)
-      if (trazeni == niz[i])
-      {
-        pronadjen = 1;
-        printf("Trazeni broj se nalazi na mestu: %d", i + 1);
-      }
-  }
-  i = duzina / 2;
-
-  if (trazeni < niz[i])
-  {
-    for (i; i > 0; i--)
+    int brojac = 0;
+    for (int i = 3; i < duzina; i++)
     {
-      if (trazeni == niz[i])
+      if (niz[i] != niz[i - 2] + niz[i - 1])
+        brojac++;
+    }
+
+    if (brojac == 0)
+      printf("Niz je fibonacijev!!!");
+    else
+      printf("Niz nije fibonacijev!");
+    -----------------------------------------------------------
+    int duzina = 0;
+
+    printf("Unesi duzinu niza: ");
+    scanf("%d", &duzina);
+    int niz[duzina];
+
+    for (int i = 0; i < duzina; i++)
+    {
+      printf("Element br.%d: ", i + 1);
+      scanf("%d", &niz[i]);
+    }
+    int trazeni, postoji = 0;
+    printf("Kojem broju trazite poziciju: ");
+    scanf("%d", &trazeni);
+    for (int i = 0; i < duzina; i++)
+    {
+      if (niz[i] == trazeni)
       {
-        pronadjen = 1;
-        printf("Trazeni broj se nalazi na mestu: %d", i + 1);
+        postoji = 1;
+        printf("Trazeni element je na poziciji %d\n", i + 1);
       }
     }
-  }
-  if (!pronadjen)
-    printf("Trazeni broj nije u nizu.");
-  -----------------------------------------------------------
+    if (!postoji)
+    {
+      printf("Trazeni element ne postoji u nizu!");
+    }
+    -----------------------------------------------------------
+    int duzina;
+    printf("Duzina niza: ");
+    scanf("%d", &duzina);
+
+    int niz[duzina];
+
+    for (int i = 0; i < duzina; i++)
+    {
+      printf("Element br.%d: ", i + 1);
+      scanf("%d", &niz[i]);
+    }
+    int trazeni;
+    printf("Kojem broju trazite poziciju: ");
+    scanf("%d", &trazeni);
+
+    trazenjeBroja(niz, duzina, trazeni);
+    -----------------------------------------------------------
+    // printf("%d", (21 / 2) + 1);
+    int duzina;
+    printf("Duzina niza: ");
+    scanf("%d", &duzina);
+
+    int niz[duzina];
+
+    for (int i = 0; i < duzina; i++)
+    {
+      printf("Element br.%d: ", i + 1);
+      scanf("%d", &niz[i]);
+      while (niz[i] <= niz[i - 1] && i != 0)
+      {
+        printf("Element br.%d: ", i + 1);
+        scanf("%d", &niz[i]);
+      }
+    }
+    int i = duzina / 2;
+    printf("Trazenje pocinje od elementa br.%d \n", i + 1);
+    int trazeni, pronadjen = 0;
+    printf("Trazeni broj: ");
+    scanf("%d", &trazeni);
+
+    printf("I:%d ", niz[i]);
+
+    if (trazeni == niz[i])
+    {
+      pronadjen = 1;
+      printf("Trazeni broj se nalazi na mestu: %d", i + 1);
+    }
+    if (trazeni > niz[i])
+    {
+      for (i; i < duzina; i++)
+        if (trazeni == niz[i])
+        {
+          pronadjen = 1;
+          printf("Trazeni broj se nalazi na mestu: %d", i + 1);
+        }
+    }
+    i = duzina / 2;
+
+    if (trazeni < niz[i])
+    {
+      for (i; i > 0; i--)
+      {
+        if (trazeni == niz[i])
+        {
+          pronadjen = 1;
+          printf("Trazeni broj se nalazi na mestu: %d", i + 1);
+        }
+      }
+    }
+    if (!pronadjen)
+      printf("Trazeni broj nije u nizu.");
+    -----------------------------------------------------------
   int duzina;
   printf("Duzina niza: ");
   scanf("%d", &duzina);
@@ -3033,9 +3033,212 @@ int main()
   scanf("%d", &trazeni);
 
   binarnoTrazenje(i, niz, trazeni, duzina);
-  -----------------------------------------------------------
+-----------------------------------------------------------
+  int duzina;
+  printf("Duzina niza: ");
+  scanf("%d", &duzina);
+
+  int niz[duzina];
+
+  for (int i = 0; i < duzina; i++)
+  {
+    printf("Element br.%d: ", i + 1);
+    scanf("%d", &niz[i]);
+  }
+  printf("Normalno ispisan niz: ");
+  for (int i = 0; i < duzina; i++)
+    printf("%d ", niz[i]);
+
+  printf("\nObrnuto ispisan niz: ");
+  for (int i = duzina - 1; i >= 0; i--)
+    printf("%d ", niz[i]);
+
   return 0;
-}*/
+}
+-----------------------------------------------------------
+
+  int duzina;
+  printf("Duzina niza: ");
+  scanf("%d", &duzina);
+
+  int niz[duzina];
+
+  for (int i = 0; i < duzina; i++)
+  {
+    printf("Element br.%d: ", i + 1);
+    scanf("%d", &niz[i]);
+  }
+  printf("Normalno ispisan niz: ");
+  for (int i = 0; i < duzina; i++)
+    printf("%d ", niz[i]);
+
+  printf("\nPomeren u levo: ");
+
+  for (int i = 1; i < duzina; i++)
+    printf("%d ", niz[i]);
+  printf("%d ", niz[0]);
+-----------------------------------------------------------
+  int duzina;
+  printf("Duzina niza: ");
+  scanf("%d", &duzina);
+
+  int niz[duzina];
+
+  for (int i = 0; i < duzina; i++)
+  {
+    printf("Element br.%d: ", i + 1);
+    scanf("%d", &niz[i]);
+  }
+  printf("Normalno ispisan niz: ");
+  for (int i = 0; i < duzina; i++)
+    printf("%d ", niz[i]);
+
+  int pomeriti;
+  printf("Koliko mesta zelis da niz bude pomeren u levo?\n(max. %d)\nAko pomerite niz za %d puta, niz ce biti unazad.\n", duzina, duzina);
+  scanf("%d", &pomeriti);
+
+  for (int i = pomeriti; i < duzina; i++)
+    printf("%d ", niz[i]);
+  for (int i = 0; i < pomeriti; i++)
+    printf("%d ", niz[i]);
+-----------------------------------------------------------
+  int duzina;
+  printf("Duzina niza: ");
+  scanf("%d", &duzina);
+
+  int niz[duzina];
+
+  for (int i = 0; i < duzina; i++)
+  {
+    printf("Element br.%d: ", i + 1);
+    scanf("%d", &niz[i]);
+  }
+  printf("Normalno ispisan niz: ");
+  for (int i = 0; i < duzina; i++)
+    printf("%d ", niz[i]);
+  int neparan, paran;
+
+  printf("\nNenormalno ispisan niz: ");
+
+  for (int i = 0; i < duzina; i++)
+  {
+    if (i % 2 != 0)
+      printf("%d ", niz[i - 1]);
+    if (i % 2 == 0)
+      printf("%d ", niz[i + 1]);
+  }
+-----------------------------------------------------------
+  int duzina;
+  printf("Duzina niza: ");
+  scanf("%d", &duzina);
+
+  int niz[duzina];
+
+  for (int i = 0; i < duzina; i++)
+  {
+    printf("Element br.%d: ", i + 1);
+    scanf("%d", &niz[i]);
+  }
+
+  int isti;
+  for (int i = 0; i < duzina - 1; i++)
+  {
+    isti = 0;
+    for (int j = i + 1; j < duzina; j++)
+    {
+
+      if (niz[i] == niz[j])
+      {
+        isti = 1;
+        break;
+      }
+    }
+    if (!isti)
+      printf("%d ", niz[i]);
+  }
+-----------------------------------------------------------
+
+  int i, j, n, pom, niz[MAX];
+  printf(" Broj elemenata niza: ");
+  scanf("%d", &n);
+  printf(" Elementi niza: ");
+  for (i = 0; i < n; i++)
+    scanf("%d", &niz[i]);
+  for (i = 0; i < n - 1; i++)
+    for (j = i + 1; j < n; j++)
+      if (niz[i] > niz[j])
+      {
+        pom = niz[i];
+        niz[i] = niz[j];
+        niz[j] = pom;
+      }
+  printf(" Sortirani niz: ");
+  for (i = 0; i < n; i++)
+    printf("%d ", niz[i]);
+  getche();
+-----------------------------------------------------------
+  int duzina;
+  printf("Duzina niza: ");
+  scanf("%d", &duzina);
+
+  int niz[duzina];
+
+  for (int i = 0; i < duzina; i++)
+  {
+    printf("Element br.%d: ", i + 1);
+    scanf("%d", &niz[i]);
+    while (niz[i] <= niz[i - 1] && i != 0)
+    {
+      printf("Element br.%d: ", i + 1);
+      scanf("%d", &niz[i]);
+    }
+  }
+  int unetaCifra;
+  printf("Unesi cifru koju zelis da uneses u vec sredjen niz: ");
+  scanf("%d", &unetaCifra);
+
+  int n = 0;
+  for (int i = 0; i < duzina; i++)
+  {
+
+    if (i != duzina - 1 && i != 0)
+    {
+      if (unetaCifra > niz[i] && unetaCifra < niz[i + 1])
+      {
+        printf("%d ", niz[i]);
+        printf("%d ", unetaCifra);
+        n = 1;
+      }
+      else
+        printf("%d ", niz[i]);
+    }
+
+    if (i == 0)
+    {
+      if (unetaCifra < niz[0])
+      {
+        printf("%d ", unetaCifra);
+        printf("%d ", niz[0]);
+        n = 1;
+      }
+    }
+
+    if (i == duzina - 1)
+    {
+      if (unetaCifra > niz[i])
+      {
+        printf("%d ", niz[i]);
+        printf("%d ", unetaCifra);
+        n = 1;
+      }
+    }
+  }
+  if (!n)
+    printf("\nVas broj ne moze da stane izmedju dva elementa u nizu.");
+-----------------------------------------------------------*/
+
+  return 0;
+}
 /*
 int main()
 {
@@ -3087,7 +3290,7 @@ int main()
 int main()
 {
 
-  //MENJANJE KOLONA
+  // MENJANJE KOLONA
   int vrste, kolone, k;
   scanf("%d", &vrste);
   scanf("%d", &kolone);
@@ -3103,7 +3306,7 @@ int main()
   for (int i = 0; i < vrste; i++)
   {
     for (int j = 0; j < kolone; j++)
-      printf("%d ", matrica[i][j]);
+      printf("%d      ", matrica[i][j]);
     printf("\n ");
   }
   scanf("%d", &prvaKolona);
@@ -3116,17 +3319,18 @@ int main()
       if (j == prvaKolona - 1)
       {
         k = drugaKolona - 1;
-        printf("%d ", matrica[i][k]);
+        printf("%d     ", matrica[i][k]);
       }
       if (j == drugaKolona - 1)
       {
         k = prvaKolona - 1;
-        printf("%d ", matrica[i][k]);
+        printf("%d     ", matrica[i][k]);
       }
       if (j != drugaKolona - 1 && j != prvaKolona - 1)
-        printf("%d ", matrica[i][j]);
+        printf("%d     ", matrica[i][j]);
     }
     printf("\n");
   }
   return 0;
-}*/
+}
+*/
