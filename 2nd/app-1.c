@@ -2736,10 +2736,57 @@ int main()
   return 0;
   }
   */
-// PRETRAZIVANJE NIZOVA
+/*PRETRAZIVANJE NIZOVA
+void trazenjeBroja(int niz[], int duzina, int trazen)
+{
+  int postoji = 0;
+  for (int i = 0; i < duzina; i++)
+    if (niz[i] == trazen)
+    {
+      postoji = 1;
+      printf("Trazeni broj se nalazi na poziciji: %d\n", i + 1);
+    }
+  if (!postoji)
+    printf("Trazeni broj ne postoji u nizu.");
+}
+
+void binarnoTrazenje(int i, int niz[], int trazeni, int duzina)
+{
+  int pronadjen = 0;
+  if (trazeni == niz[i])
+  {
+    pronadjen = 1;
+    printf("Trazeni broj se nalazi na mestu: %d", i + 1);
+  }
+  if (trazeni > niz[i])
+  {
+    for (i; i < duzina; i++)
+      if (trazeni == niz[i])
+      {
+        pronadjen = 1;
+        printf("Trazeni broj se nalazi na mestu: %d", i + 1);
+      }
+  }
+  i = duzina / 2;
+
+  if (trazeni < niz[i])
+  {
+    for (i; i > 0; i--)
+    {
+      if (trazeni == niz[i])
+      {
+        pronadjen = 1;
+        printf("Trazeni broj se nalazi na mestu: %d", i + 1);
+      }
+    }
+  }
+  if (!pronadjen)
+    printf("Trazeni broj nije u nizu.");
+}
+
 int main()
 {
-  /*
+
  int duzina;
  printf("Duzina oba niza: ");
  scanf("%d", &duzina);
@@ -2863,7 +2910,7 @@ int main()
     printf("Niz je fibonacijev!!!");
   else
     printf("Niz nije fibonacijev!");
-  -----------------------------------------------------------*/
+  -----------------------------------------------------------
   int duzina = 0;
 
   printf("Unesi duzinu niza: ");
@@ -2875,7 +2922,7 @@ int main()
     printf("Element br.%d: ", i + 1);
     scanf("%d", &niz[i]);
   }
-  int trazeni, pozicija, postoji = 0;
+  int trazeni, postoji = 0;
   printf("Kojem broju trazite poziciju: ");
   scanf("%d", &trazeni);
   for (int i = 0; i < duzina; i++)
@@ -2883,13 +2930,110 @@ int main()
     if (niz[i] == trazeni)
     {
       postoji = 1;
-      pozicija = i;
-      printf("Trazeni element je na poziciji %d\n", pozicija + 1);
+      printf("Trazeni element je na poziciji %d\n", i + 1);
     }
   }
   if (!postoji)
   {
     printf("Trazeni element ne postoji u nizu!");
   }
+  -----------------------------------------------------------
+  int duzina;
+  printf("Duzina niza: ");
+  scanf("%d", &duzina);
+
+  int niz[duzina];
+
+  for (int i = 0; i < duzina; i++)
+  {
+    printf("Element br.%d: ", i + 1);
+    scanf("%d", &niz[i]);
+  }
+  int trazeni;
+  printf("Kojem broju trazite poziciju: ");
+  scanf("%d", &trazeni);
+
+  trazenjeBroja(niz, duzina, trazeni);
+  -----------------------------------------------------------
+  // printf("%d", (21 / 2) + 1);
+  int duzina;
+  printf("Duzina niza: ");
+  scanf("%d", &duzina);
+
+  int niz[duzina];
+
+  for (int i = 0; i < duzina; i++)
+  {
+    printf("Element br.%d: ", i + 1);
+    scanf("%d", &niz[i]);
+    while (niz[i] <= niz[i - 1] && i != 0)
+    {
+      printf("Element br.%d: ", i + 1);
+      scanf("%d", &niz[i]);
+    }
+  }
+  int i = duzina / 2;
+  printf("Trazenje pocinje od elementa br.%d \n", i + 1);
+  int trazeni, pronadjen = 0;
+  printf("Trazeni broj: ");
+  scanf("%d", &trazeni);
+
+  printf("I:%d ", niz[i]);
+
+  if (trazeni == niz[i])
+  {
+    pronadjen = 1;
+    printf("Trazeni broj se nalazi na mestu: %d", i + 1);
+  }
+  if (trazeni > niz[i])
+  {
+    for (i; i < duzina; i++)
+      if (trazeni == niz[i])
+      {
+        pronadjen = 1;
+        printf("Trazeni broj se nalazi na mestu: %d", i + 1);
+      }
+  }
+  i = duzina / 2;
+
+  if (trazeni < niz[i])
+  {
+    for (i; i > 0; i--)
+    {
+      if (trazeni == niz[i])
+      {
+        pronadjen = 1;
+        printf("Trazeni broj se nalazi na mestu: %d", i + 1);
+      }
+    }
+  }
+  if (!pronadjen)
+    printf("Trazeni broj nije u nizu.");
+  -----------------------------------------------------------
+  int duzina;
+  printf("Duzina niza: ");
+  scanf("%d", &duzina);
+
+  int niz[duzina];
+
+  for (int i = 0; i < duzina; i++)
+  {
+    printf("Element br.%d: ", i + 1);
+    scanf("%d", &niz[i]);
+    while (niz[i] <= niz[i - 1] && i != 0)
+    {
+      printf("Element br.%d: ", i + 1);
+      scanf("%d", &niz[i]);
+    }
+  }
+  int i = duzina / 2;
+  printf("Trazenje pocinje od elementa br.%d \n", i + 1);
+  int trazeni;
+  printf("Trazeni broj: ");
+  scanf("%d", &trazeni);
+
+  binarnoTrazenje(i, niz, trazeni, duzina);
+  -----------------------------------------------------------
   return 0;
 }
+*/
