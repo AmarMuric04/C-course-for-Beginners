@@ -2885,7 +2885,7 @@ int main()
       pozicija = i;
     }
 
-  printf("Najveci parni element u nizu je: %d,\nNa poziciji: %d. (Niz uracunava 0 kao prvi element)", najveciParniIndeks, pozicija);
+  printf("Najveci parni element u nizu je: %d,\nNa poziciji: %d. (Niz racuna 0 kao prvi element)", najveciParniIndeks, pozicija);
   -----------------------------------------------------------
   int duzina = 0;
   while (duzina < 2)
@@ -3035,5 +3035,98 @@ int main()
   binarnoTrazenje(i, niz, trazeni, duzina);
   -----------------------------------------------------------
   return 0;
+}*/
+/*
+int main()
+{
+  //MENJANJE VRSTA
+  int vrste, kolone, matrica[MAX][MAX];
+  scanf("%d", &vrste);
+  scanf("%d", &kolone);
+  for (int i = 0; i < vrste; i++)
+  {
+    for (int j = 0; j < kolone; j++)
+    {
+      printf("[%d][%d]", i, j);
+      scanf("%d", &matrica[i][j]);
+    }
+  }
+  for (int i = 0; i < vrste; i++)
+  {
+    for (int j = 0; j < kolone; j++)
+      printf("%d ", matrica[i][j]);
+    printf("\n");
+  }
+  int prvaMatrica, drugaMatrica, k;
+  scanf("%d", &prvaMatrica);
+  scanf("%d", &drugaMatrica);
+
+  for (int i = 0; i < vrste; i++)
+  {
+    if (i == prvaMatrica - 1)
+    {
+      k = drugaMatrica - 1;
+      for (int j = 0; j < kolone; j++)
+        printf("%d ", matrica[k][j]);
+    }
+    if (i == drugaMatrica - 1)
+    {
+      k = prvaMatrica - 1;
+      for (int j = 0; j < kolone; j++)
+        printf("%d ", matrica[k][j]);
+    }
+    if (i != prvaMatrica - 1 && i != drugaMatrica - 1)
+    {
+      for (int j = 0; j < kolone; j++)
+        printf("%d ", matrica[i][j]);
+    }
+    printf("\n");
+  }
 }
-*/
+
+int main()
+{
+
+  //MENJANJE KOLONA
+  int vrste, kolone, k;
+  scanf("%d", &vrste);
+  scanf("%d", &kolone);
+
+  int matrica[MAX][MAX];
+  for (int i = 0; i < vrste; i++)
+    for (int j = 0; j < kolone; j++)
+    {
+      printf("El. [%d][%d]: ", i, j);
+      scanf("%d", &matrica[i][j]);
+    }
+  int prvaKolona, drugaKolona;
+  for (int i = 0; i < vrste; i++)
+  {
+    for (int j = 0; j < kolone; j++)
+      printf("%d ", matrica[i][j]);
+    printf("\n ");
+  }
+  scanf("%d", &prvaKolona);
+  scanf("%d", &drugaKolona);
+
+  for (int i = 0; i < vrste; i++)
+  {
+    for (int j = 0; j < kolone; j++)
+    {
+      if (j == prvaKolona - 1)
+      {
+        k = drugaKolona - 1;
+        printf("%d ", matrica[i][k]);
+      }
+      if (j == drugaKolona - 1)
+      {
+        k = prvaKolona - 1;
+        printf("%d ", matrica[i][k]);
+      }
+      if (j != drugaKolona - 1 && j != prvaKolona - 1)
+        printf("%d ", matrica[i][j]);
+    }
+    printf("\n");
+  }
+  return 0;
+}*/
