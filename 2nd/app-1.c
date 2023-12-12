@@ -2,6 +2,7 @@
 #include <math.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include <string.h>
 #define pi 3.1415926
 #define max 100;
 #define MAX 100
@@ -11,6 +12,8 @@
 #define MAX_COLS_A 10
 #define MAX_ROWS_B 10
 #define MAX_COLS_B 10
+#define REDOVI 5
+#define KOLONE 5
 
 /*ZADACI DO FUNKCIJA
 int main()
@@ -2161,13 +2164,140 @@ int main()
   // transponovanjeMatriceBezFunkcija();
 
   najveciINajmanjiElementUMatrici(vrste, kolone, matrica);
+  */
+/*int main()
+{
+
+  ---------------------------------------------
+
+  int vrste, i, j;
+  printf("Vrste: ");
+  scanf("%d", &vrste);
+
+  int matrica[vrste][vrste];
+
+  for (i = 0; i < vrste; i++)
+    for (j = 0; j < vrste; j++)
+    {
+      printf("El. [%d][%d]", i, j);
+      scanf("%d", &matrica[i][j]);
+    }
+
+  for (i = 0; i < vrste; i++)
+  {
+    for (j = 0; j < vrste; j++)
+      printf("%d ", matrica[i][j]);
+    printf("\n");
+  }
+  printf("\n\n\n\n");
+
+  for (i = 0; i < vrste; i++)
+  {
+    for (j = 0; j < vrste; j++)
+      printf("%d ", matrica[j][i]);
+    printf("\n");
+  }
+  ---------------------------------------------
+  int vrste, i, j;
+  printf("Vrste: ");
+  scanf("%d", &vrste);
+
+  int matrica[vrste][vrste], dijagonala[vrste];
+
+  for (i = 0; i < vrste; i++)
+    for (j = 0; j < vrste; j++)
+    {
+      printf("El. [%d][%d]", i, j);
+      scanf("%d", &matrica[i][j]);
+      if (i == j)
+        dijagonala[i] = matrica[i][j];
+    }
+
+  for (i = 0; i < vrste - 1; i++)
+  {
+    for (j = i + 1; j < vrste; j++)
+    {
+      if (dijagonala[i] > dijagonala[j])
+      {
+        int temp = dijagonala[i];
+        dijagonala[i] = dijagonala[j];
+        dijagonala[j] = temp;
+      }
+    }
+  }
+
+  for (i = 0; i < vrste; i++)
+  {
+    for (j = 0; j < vrste; j++)
+      printf("%d ", matrica[i][j]);
+    printf("\n");
+  }
+  int k = 0;
+  for (i = 0; i < vrste; i++)
+  {
+    for (j = 0; j < vrste; j++)
+    {
+      if (j != i)
+        printf("%d ", matrica[i][j]);
+      else
+      {
+        printf("%d ", dijagonala[k]);
+        k++;
+      }
+    }
+    printf("\n");
+  }
+  ---------------------------------------------
+  int duzina, i, j;
+  scanf("%d", &duzina);
+  int niz[duzina];
+  for (i = 0; i < duzina; i++)
+  {
+    printf("El br.%d: ", i + 1);
+    scanf("%d", &niz[i]);
+  }
+
+  for (i = 0; i < duzina - 1; i++)
+  {
+    for (j = i + 1; j < duzina; j++)
+    {
+      if (niz[i] > niz[j])
+      {
+        int temp = niz[i];
+        niz[i] = niz[j];
+        niz[j] = temp;
+      }
+    }
+  }
+
+  for (int i = 0; i < duzina; i++)
+    printf("%d ", niz[i]);
+
+  int brojac = 0, duzinaIstih = -1, isti;
+
+  for (i = 0; i < duzina; i++)
+  {
+    brojac = 1;
+    for (j = i + 1; j < duzina && niz[i] == niz[j]; j++)
+    {
+      brojac++;
+      if (brojac > duzinaIstih)
+      {
+        duzinaIstih = brojac;
+        isti = i;
+      }
+    }
+  }
+
+  printf("Najvise se ponavlja cifra %d, (%d puta)", niz[isti], duzinaIstih);
+  ---------------------------------------------
+
   return 0;
-}
-*/
-// NIZOVI
+}*/
+/* NIZOVI
 
 int main()
-{ /*
+{
   int n;
   printf("Predvidjena duzina niza?\n");
   scanf("%d", &n);
@@ -2740,7 +2870,7 @@ int main()
   {
     printf("%d\n", rezultat[i]);
   }
----------------------------------------*/
+---------------------------------------
 
   int matrica1[MAX][MAX], matrica2[MAX][MAX], rezultat[MAX][MAX], V1, K1, V2, K2, V3, K3, i, j, k;
 
@@ -2795,7 +2925,7 @@ int main()
   }
   return 0;
 }
-
+---------------------------------------*/
 /*NIZOVI I FUNKCIJE
 
 double mnozenjeSkalara(int duzina, double niz1[], double niz2[])
@@ -3574,5 +3704,52 @@ int main()
   }
 
   return 0;
+}
+*/
+/*STRINGOVI
+int main()
+{
+   char s[] = "Amar je brat";
+   int i;
+   for (i = 0; s[i] != '\0'; i++)
+     putchar(s[i]);
+   putchar('\n');
+ -------------------
+
+  char s[MAX + 1];
+  gets(s);
+  puts(s);
+ -------------------
+
+  const char niz[MAX][MAX] = {"Operatori", "Ciklusi", "Skokovi", "Karakteri", "Nizovi", "Matrice", "Stringovi", "Pokazivaci", "Strukture", "Datoteke"};
+
+  int broj;
+  scanf("%d", &broj);
+
+  printf("\n Poglavlje broj %d je:%s ", broj, niz[broj - 1]);
+ -------------------
+  char string[MAX], string2[MAX];
+  puts("String: ");
+  gets(string);
+  puts("String2: ");
+  gets(string2);
+
+  int duzinaStringa = sizeof(string) / sizeof(char);
+  // printf("%d", strlen(string));
+  strlen(string) > strlen(string2) ? printf("Duzi je prvi (%dchars)", strlen(string)) : printf("Duzi je drugi (%dchars)", strlen(string2));
+ ------------------------------------
+  char string[MAX], string2[MAX];
+  puts("String: ");
+  gets(string);
+
+  puts("String2: ");
+  gets(string2);
+
+  strcmp(string, string2) == 0 ? printf("Stringovi su isti") : printf("Stringovi nisu isti");
+
+  strncmp(string, string2, 5) == 0 ? printf("\nPrvih 5 su isti") : printf("\nPrvih 5 nisu isti");
+ ------------------------------------
+
+return 0;
 }
 */
