@@ -3815,6 +3815,49 @@ int main()
  ------------------------------------
   char string[MAX];
   isipisivanjeStringa("Halo bruder");
+ ------------------------------------
+  char string[MAX];
+  int i;
+  puts("String: ");
+  gets(string);
+  printf("Duzina stringa: %d\n", strlen(string));
+  char string2[MAX];
+  puts("String2: ");
+  gets(string2);
+  // printf("%s \n", strcpy(string, string2));
+  // printf("%s \n", strcat(string, string2));
+
+  // printf("%s \n%s\n", string, string2);
+  int cbrojac = 0;
+  // printf("%d", strcmp(string, string2));
+  for (i = 0; string[i]; i++)
+  {
+    if (string[i] == 'c')
+    {
+      printf("Prvo c: %d \n", i);
+      cbrojac++;
+    }
+    if (cbrojac)
+      break;
+  }
+  if (!cbrojac)
+    printf("-1");
+
+  cbrojac = 0;
+  for (i = strlen(string); i >= 0; i--)
+  {
+    if (string[i] == 'c')
+    {
+      printf("Zadnje c: %d \n", i);
+      cbrojac++;
+      break;
+    }
+    if (cbrojac)
+      break;
+  }
+  if (!cbrojac)
+    printf("-1");
  ------------------------------------*/
-  char string[MAX]; return 0;
+
+  return 0;
 }
