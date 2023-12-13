@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <string.h>
+
 #define pi 3.1415926
 #define max 100;
 #define MAX 100
@@ -3706,10 +3707,15 @@ int main()
   return 0;
 }
 */
-/*STRINGOVI
+// STRINGOVI
+void isipisivanjeStringa(char string[])
+{
+  for (int i = 0; string[i] && string[i] != ' '; i++)
+    putchar(string[i]);
+}
 int main()
 {
-   char s[] = "Amar je brat";
+  /*char s[] = "Amar je brat";
    int i;
    for (i = 0; s[i] != '\0'; i++)
      putchar(s[i]);
@@ -3749,7 +3755,66 @@ int main()
 
   strncmp(string, string2, 5) == 0 ? printf("\nPrvih 5 su isti") : printf("\nPrvih 5 nisu isti");
  ------------------------------------
+  char s1[MAX + 1], s2[MAX + 1];
+  printf("\n Prvi string: ");
+  gets(s1);
+  printf(" Drugi string: ");
+  gets(s2);
+  printf("\n Novi string: ");
+  strncpy(s1, s2, 5);
+  puts(s1);
+ ------------------------------------
+  char s1[MAX + 1], s2[MAX + 1];
+  printf("\n Prvi string: ");
+  gets(s1);
+  printf(" Drugi string: ");
+  gets(s2);
+  printf("\n Novi string: ");
+  strncat(s1, s2, 5);
+  puts(s1);
+ ------------------------------------
+  char string1[MAX];
 
-return 0;
+  printf("Prvi string: \n");
+  gets(string1);
+
+  printf("%d \n", atoi(string1));
+  printf("%f \n", atof(string1));
+ ------------------------------------
+  char string1[MAX], string2[MAX], znak;
+
+  printf("Prvi broj: \n");
+  gets(string1);
+  printf("Drugi broj: \n");
+  gets(string2);
+  printf("Znak: ");
+  scanf("%c", &znak);
+  if (!isdigit(string1[0]) && string1[0] != '-' || !isdigit(string2[0]) && string2[0] != '-')
+    return -1;
+
+  switch (znak)
+  {
+  case '+':
+    printf("%d ", atoi(string1) + atoi(string2));
+    break;
+  case '-':
+    printf("%d ", atoi(string1) - atoi(string2));
+    break;
+  case '*':
+    printf("%d ", atoi(string1) * atoi(string2));
+    break;
+  case '/':
+    printf("%.3f ", (float)atoi(string1) / atoi(string2));
+    break;
+  default:
+    printf("Znak nije tacan jedan od 4 osnovna aritmetickih znakova.");
+  }
+ ------------------------------------
+  char string[MAX];
+  isipisivanjeStringa("Halo bruder");
+ ------------------------------------
+  char string[MAX];
+  isipisivanjeStringa("Halo bruder");
+ ------------------------------------*/
+  char string[MAX]; return 0;
 }
-*/
