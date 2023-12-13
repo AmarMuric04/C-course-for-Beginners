@@ -3857,6 +3857,154 @@ int main()
   }
   if (!cbrojac)
     printf("-1");
+ ------------------------------------
+  char string[MAX];
+  puts("Unesi string: ");
+  gets(string);
+  int duzinaStringa = strlen(string), i, n = 0, m = 0, k = 0;
+  for (i = 0; i < duzinaStringa; i++)
+  {
+    if (isspace(string[i]))
+      n++;
+    if (string[i] >= 'a' && string[i] <= 'z')
+      m++;
+    if (string[i] >= 'A' && string[i] <= 'Z')
+      k++;
+  }
+
+  if (n)
+    printf("Broj razmaka: %d\n", n);
+  if (m)
+    printf("Broj malih slova: %d\n", m);
+  if (k)
+    printf("Broj velikih slova: %d\n", k);
+  char string2[MAX];
+  strcpy(string2, string);
+
+  for (i = 0; i < duzinaStringa; i++)
+    string2[i] = tolower(string[i]);
+
+  printf("To lowercase: %s\n", string2);
+
+  for (i = 0; i < duzinaStringa - 1; i++)
+  {
+    for (int j = i + 1; j < duzinaStringa; j++)
+    {
+      if (string2[i] > string2[j])
+      {
+        int temp = string2[i];
+        string2[i] = string2[j];
+        string2[j] = temp;
+      }
+    }
+  }
+  printf("%s\n", string2);
+  int isti, brojac = -1, duzinaIstih = -1;
+
+  for (i = 0; i < duzinaStringa; i++)
+  {
+    brojac = 0;
+    for (int j = i + 1; j < duzinaStringa && string2[i] == string2[j] && !isspace(string2[i]); j++)
+    {
+      brojac++;
+      if (brojac > duzinaIstih)
+      {
+        duzinaIstih = brojac;
+        isti = i;
+      }
+    }
+  }
+
+  printf("Slovo koje se najvise puta ponavlja je %c (%d puta).", string2[isti], duzinaIstih + 1);
+ ------------------------------------
+  char string[MAX], znak;
+  puts("Unesi string: ");
+  gets(string);
+
+  printf("Unesi znak: ");
+  scanf("%c", &znak);
+
+  int duzinaStringa = strlen(string), i, n = 0;
+  for (i = 0; i < duzinaStringa; i++)
+    if (string[i] == znak || string[i] == toupper(znak))
+      n++;
+
+  n ? printf("Vas znak se u stringu pojavljuje %d puta.", n) : printf("Vas znak se ne pojavljuje u niuzu.");
+ ------------------------------------
+  char string[MAX];
+  printf("Unesite string: \n");
+  gets(string);
+
+  int i, n = 0, duzinaStringa = strlen(string);
+  for (i = 0; i < duzinaStringa; i++)
+    if (string[i] == ' ' && string[i + 1] != ' ' && string[i - 1] != ' ')
+      n++;
+
+  if (n)
+    printf("Broj 'reci' u stringu: %d", n + 1);
+  if (!n && strlen(string) != 0)
+    printf("String ima jednu 'rec'");
+  if (!n && !strlen(string))
+    printf("String je prazan");
+ ------------------------------------
+  char string[MAX];
+  printf("Unesi string: \n");
+  gets(string);
+
+  int i, j, isti, brojac = -1, duzinaIstih = -1, duzinaStringa = strlen(string);
+  for (i = 0; i < duzinaStringa; i++)
+  {
+    brojac = 0;
+    for (j = i + 1; i < duzinaStringa && string[i] == string[j]; j++)
+    {
+      brojac++;
+      if (brojac > duzinaIstih)
+      {
+        duzinaIstih = brojac;
+        isti = i;
+      }
+    }
+  }
+
+  printf("Slovo koje se najvise puta ponavlja uzastopno je %c (%d puta).", string[isti], duzinaIstih + 1);
+ ------------------------------------
+  char string[MAX][MAX], maksimalni, minimalni;
+  int i;
+  printf("Unesi 1. red \n", i + 1);
+  scanf("%s", string[0]);
+  strcpy(maksimalni, string[0]);
+  strcpy(minimalni, string[0]);
+  int imax, imin;
+  for (i = 0; i < MAX; i++)
+  {
+    printf("Unesi %d. red \n", i + 1);
+    scanf("%s", string[i]);
+    if (string[i] > maksimalni)
+    {
+      strcpy(maksimalni, string[i]);
+      imax = i;
+    }
+    if (string[i] < minimalni)
+    {
+      strcpy(minimalni, string[i]);
+      imin = i;
+    }
+    if (string[i] == "")
+      break;
+  }
+  printf("Najduzi red je %d. red: \n%s\n", imax, maksimalni);
+  printf("Najkraci red je %d. red: \n%s", imin, minimalni);
+ ------------------------------------
+  char string[MAX];
+  int i;
+  printf("String: \n");
+  gets(string);
+  int duzinaStringa = strlen(string);
+  for (i = 0; i < duzinaStringa; i++)
+    if (string[i] != toupper(string[i]))
+      string[i] = toupper(string[i]);
+
+  printf("Novi string: %s ", string);
  ------------------------------------*/
 
   return 0;
