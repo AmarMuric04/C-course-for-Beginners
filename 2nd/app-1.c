@@ -3713,6 +3713,18 @@ void isipisivanjeStringa(char string[])
   for (int i = 0; string[i] && string[i] != ' '; i++)
     putchar(string[i]);
 }
+
+void ukloniZnak(char string[], char znak)
+{
+  int i;
+  for (i = 0; i < strlen(string); i++)
+  {
+    if (string[i] == znak)
+      continue;
+    else
+      printf("%c", string[i]);
+  }
+}
 int main()
 {
   /*char s[] = "Amar je brat";
@@ -4005,7 +4017,200 @@ int main()
       string[i] = toupper(string[i]);
 
   printf("Novi string: %s ", string);
- ------------------------------------*/
+ ------------------------------------
+  char string[MAX];
+  printf("Unesite string: \n");
+  gets(string);
 
+  int duzinaStringa = strlen(string), i, n = 0;
+  while (strlen(string) > MAX)
+  {
+    printf("Unesite string: \n");
+    gets(string);
+  }
+  for (i = 0; i < duzinaStringa; i++)
+  {
+    if (string[0] > 'Z' || string[0] < 'A')
+    {
+      n++;
+      printf("A: %d\n", n);
+    }
+    if (string[duzinaStringa - 1] != '.')
+    {
+      n++;
+      printf("B: %d\n", n);
+    }
+    if (i != 0 && string[i] != ' ' && string[i] != '.' && string[i] != ',' && string[i] < 'a' || string[i] > 'z')
+    {
+      n++;
+      printf("C: %d %d\n", n, i);
+    }
+    if (i != duzinaStringa - 1 && string[i] == ',' && string[i] == string[i + 1] || string[i] == '.' && string[i] == string[i + 1] || string[i] == ' ' && string[i] == string[i + 1])
+    {
+      n++;
+      printf("D: %d %d\n", n, i);
+    }
+  }
+  n ? printf("String nije korektan.") : printf("String je korektan");
+ ------------------------------------
+  char string[MAX];
+  printf("Unesi string: \n");
+  gets(string);
+
+  int duzinaStringa = strlen(string), i;
+  for (i = 0; i < duzinaStringa; i++)
+  {
+    if (isspace(string[i]))
+      printf("\n");
+    else
+      printf("%c", string[i]);
+  }
+ ------------------------------------
+  char string[MAX];
+  printf("Unesi string:");
+  gets(string);
+
+  int duzinaStringa = strlen(string), i;
+  for (i = 0; i < duzinaStringa; i++)
+  {
+    if (string[i] == ' ' || string[i] == ',' || string[i] == ';')
+      continue;
+    else
+
+      printf("%c", string[i]);
+  }
+ ------------------------------------
+  char string[MAX];
+  printf("Unesite string: \n");
+  gets(string);
+
+  int duzinaStringa = strlen(string), i;
+  char znak;
+  printf("Unesite znak koji zelite da obrisete iz stringa.\n");
+  scanf("%c", &znak);
+
+  ukloniZnak(string, znak);
+ ------------------------------------
+  char string[MAX];
+  printf("Unesi string: \n");
+  gets(string);
+
+  int duzinaStringa = strlen(string), i;
+
+  for (i = duzinaStringa - 1; i >= 0; i--)
+    printf("%c", string[i]);
+ ------------------------------------
+  char string[MAX];
+  printf("Unesi string: \n");
+  gets(string);
+
+  int duzinaStringa = strlen(string), i;
+
+  for (i = 1; i < duzinaStringa; i++)
+  {
+    printf("%c", string[i]);
+  }
+  printf("%c", string[0]);
+ ------------------------------------
+  char string[MAX][MAX];
+  int duzina, i;
+  printf("Unesi duzinu spiska: ");
+  scanf("%d", &duzina);
+
+  for (i = 0; i < duzina; i++)
+  {
+    printf("%d. spisak: ", i + 1);
+    scanf("%s", string[i]);
+  }
+  for (i = 1; i < duzina; i++)
+    printf("%s\n", string[i]);
+  printf("%s", string[0]);
+ ------------------------------------
+  char string[MAX];
+
+  printf("Upisi rec (ili recenicu) i vidi da li je polindrom ili ne.\n");
+  gets(string);
+
+  int duzinaStringa = strlen(string), i, j = 0;
+
+  char string2[MAX];
+  strcpy(string2, string);
+  for (i = duzinaStringa - 1; i >= 0; i--)
+  {
+    string2[i] = string[j];
+    j++;
+  }
+  printf("%s\n%s\n", string, string2);
+
+  int n = 0;
+  for (i = 0; i < duzinaStringa; i++)
+    if (string[i] != string2[i])
+      n++;
+
+  n ? printf("Nije polindrom") : printf("Jeste polindrom");
+ ------------------------------------
+  char string[MAX];
+  char string2[MAX];
+
+  printf("Upisi rec (ili recenicu) i vidi da li je polindrom ili ne.\n");
+  gets(string);
+
+  int duzinaStringa = strlen(string), i, k = 0, m = 0;
+
+  for (i = 0; i < duzinaStringa; i++)
+  {
+    if (m != duzinaStringa - k)
+    {
+      if (string[i] == ' ')
+      {
+        k++;
+        continue;
+      }
+      else
+      {
+        string2[m] = string[i];
+        m++;
+      }
+    }
+    else
+      break;
+  }
+  printf("%d\n%d\n", m, duzinaStringa - k - 1);
+  int n = 0;
+  printf("%s\n", string2);
+  for (i = 0; i < duzinaStringa; i++)
+    if (string2[i] != string2[duzinaStringa - i - 1 - m])
+      n++;
+
+  n ? printf("Nije polindrom.") : printf("Polindrom");
+ ------------------------------------*/
+  char string[MAX][MAX];
+  int brojLjudi, i;
+  printf("Unesi broj ljudi: ");
+  scanf("%d", &brojLjudi);
+
+  for (i = 0; i < brojLjudi; i++)
+  {
+    printf("%d. Ime: ", i + 1);
+    scanf("%s", string[i]);
+  }
+  char temp[MAX];
+  int j;
+  for (i = 0; i < brojLjudi - 1; i++)
+  {
+    for (j = i + 1; j < brojLjudi; i++)
+    {
+      if (strcmp(string[i], string[j]) > 0)
+      {
+        strcpy(temp, string[i]);
+        strcpy(string[i], string[i + 1]);
+        strcpy(string[i + 1], temp);
+      }
+    }
+  }
+  for (i = 0; i < brojLjudi; i++)
+  {
+    puts(string[i]);
+  }
   return 0;
 }
