@@ -4249,18 +4249,18 @@ int main()
     printf("YES");
   else
     printf("NO");
- ------------------------------------*/
+ ------------------------------------
   char s[MAX + 1];
   int n, i, k = 0, br = 0, j, v = 0;
   printf("\n Unesite recenicu: ");
   gets(s);
   n = strlen(s);
-  /*broji razmake*/
+  //broji razmake
   for (i = 0; i < n; i++)
     if (s[i] == ' ' || s[i] == '.' || s[i] == ',' || s[i] == ';')
       br++;
 
-  /*pravim novi string koji macinje sve razmake iz prvog stringa*/
+  //pravim novi string koji macinje sve razmake iz prvog stringa
   char s2[MAX + 1];
   for (i = 0; i < n; i++)
   {
@@ -4270,12 +4270,54 @@ int main()
       v++;
     }
   }
-  /*proverava da li je ucitani string palindrom*/
+  //proverava da li je ucitani string palindrom
   n -= br;
   for (i = 0; i < n; i++)
     if (s2[i] != s2[n - i - 1])
       k = 1;
   !k ? printf("\n String je palindrom.")
      : printf("\n String nije palindrom.");
+ ------------------------------------
+  char string[MAX][MAX];
+  int brojLjudi, i, j;
+  printf("Unesi kolicinu ljudi: ");
+  scanf("%d", &brojLjudi);
+
+  for (i = 0; i < brojLjudi; i++)
+  {
+    printf("%d. ime: ", i + 1);
+    scanf("%s", string[i]);
+  }
+
+  char temp[MAX];
+  for (i = 0; i < brojLjudi; i++)
+    for (j = i + 1; j < brojLjudi; j++)
+      if (strcmp(string[i], string[j]) > 0)
+      {
+        strcpy(temp, string[i]);
+        strcpy(string[i], string[j]);
+        strcpy(string[j], temp);
+      }
+  for (i = 0; i < brojLjudi; i++)
+    puts(string[i]);
+  int brojac = 0;
+  printf("\n\n\n");
+  for (i = 0; i < brojLjudi; i++)
+  {
+    if (strcmp(string[i], string[i + 1]) != 0)
+    {
+      strcpy(string[brojac], string[i]);
+      brojac++;
+    }
+  }
+  if (i == brojLjudi - 1)
+  {
+    strcpy(string[brojac], string[i]);
+  }
+
+  for (i = 0; i < brojac; i++)
+    puts(string[i]);
+ ------------------------------------ */
+
   return 0;
 }
