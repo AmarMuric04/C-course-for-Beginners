@@ -4183,34 +4183,65 @@ int main()
       n++;
 
   n ? printf("Nije polindrom.") : printf("Polindrom");
- ------------------------------------*/
+ ------------------------------------
   char string[MAX][MAX];
-  int brojLjudi, i;
-  printf("Unesi broj ljudi: ");
+  int brojLjudi, i, j;
+  printf("Unesi kolicinu ljudi: ");
   scanf("%d", &brojLjudi);
 
   for (i = 0; i < brojLjudi; i++)
   {
-    printf("%d. Ime: ", i + 1);
+    printf("%d. ime: ", i + 1);
     scanf("%s", string[i]);
   }
+
   char temp[MAX];
-  int j;
   for (i = 0; i < brojLjudi - 1; i++)
-  {
-    for (j = i + 1; j < brojLjudi; i++)
-    {
+    for (j = i + 1; j < brojLjudi; j++)
       if (strcmp(string[i], string[j]) > 0)
       {
         strcpy(temp, string[i]);
-        strcpy(string[i], string[i + 1]);
-        strcpy(string[i + 1], temp);
+        strcpy(string[i], string[j]);
+        strcpy(string[j], temp);
       }
-    }
-  }
+  for (i = 0; i < brojLjudi; i++)
+    printf("%s\n", string[i]);
+ ------------------------------------*/
+  char string[MAX][MAX];
+  int brojLjudi, i, j;
+  printf("Unesi kolicinu ljudi: ");
+  scanf("%d", &brojLjudi);
+
   for (i = 0; i < brojLjudi; i++)
   {
-    puts(string[i]);
+    printf("%d. ime: ", i + 1);
+    scanf("%s", string[i]);
   }
+
+  char temp[MAX];
+  for (i = 0; i < brojLjudi; i++)
+    for (j = i + 1; j < brojLjudi; j++)
+      if (strcmp(string[i], string[j]) > 0)
+      {
+        strcpy(temp, string[i]);
+        strcpy(string[i], string[j]);
+        strcpy(string[j], temp);
+      }
+  for (i = 0; i < brojLjudi; i++)
+    puts(string[i]);
+  int brojac = 0;
+  printf("\n\n\n");
+  for (i = 0; i < brojLjudi - 1; i++)
+  {
+    brojac = 0;
+    for (j = i + 1; j < brojLjudi; j++)
+    {
+      if (strcmp(string[i], string[j]) == 0)
+        brojac++;
+    }
+    if (!brojac)
+      puts(string[i]);
+  }
+  puts(string[brojLjudi - 1]);
   return 0;
 }
