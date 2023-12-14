@@ -4206,7 +4206,7 @@ int main()
       }
   for (i = 0; i < brojLjudi; i++)
     printf("%s\n", string[i]);
- ------------------------------------*/
+ ------------------------------------
   char string[MAX][MAX];
   int brojLjudi, i, j;
   printf("Unesi kolicinu ljudi: ");
@@ -4243,5 +4243,39 @@ int main()
       puts(string[i]);
   }
   puts(string[brojLjudi - 1]);
+ ------------------------------------
+
+  if (strcmp("MURGA", "MURGA") == 0)
+    printf("YES");
+  else
+    printf("NO");
+ ------------------------------------*/
+  char s[MAX + 1];
+  int n, i, k = 0, br = 0, j, v = 0;
+  printf("\n Unesite recenicu: ");
+  gets(s);
+  n = strlen(s);
+  /*broji razmake*/
+  for (i = 0; i < n; i++)
+    if (s[i] == ' ' || s[i] == '.' || s[i] == ',' || s[i] == ';')
+      br++;
+
+  /*pravim novi string koji macinje sve razmake iz prvog stringa*/
+  char s2[MAX + 1];
+  for (i = 0; i < n; i++)
+  {
+    if (s[i] != ' ' && s[i] != '.' && s[i] != ',' && s[i] != ';')
+    {
+      s2[v] = tolower(s[i]);
+      v++;
+    }
+  }
+  /*proverava da li je ucitani string palindrom*/
+  n -= br;
+  for (i = 0; i < n; i++)
+    if (s2[i] != s2[n - i - 1])
+      k = 1;
+  !k ? printf("\n String je palindrom.")
+     : printf("\n String nije palindrom.");
   return 0;
 }
