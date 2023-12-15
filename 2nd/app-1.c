@@ -4625,7 +4625,7 @@ int main()
   {
     printf("Invalid row numbers.\n");
   }
-   -----------------------------------------*/
+   -----------------------------------------
   int vrste, kolone, k;
   scanf("%d", &vrste);
   scanf("%d", &kolone);
@@ -4667,6 +4667,111 @@ int main()
   }
   else
     printf("error");
+   -----------------------------------------
+  int vrste, kolone;
+  printf("Vrste: ");
+  scanf("%d", &vrste);
+  printf("Kolone: ");
+  scanf("%d", &kolone);
+
+  int i, j, matrica[MAX][MAX];
+  for (i = 0; i < vrste; i++)
+    for (j = 0; j < kolone; j++)
+    {
+      printf("El. [%d][%d]: ", i, j);
+      scanf("%d", &matrica[i][j]);
+    }
+  for (i = 0; i < vrste; i++)
+  {
+    for (j = 0; j < kolone; j++)
+      printf("%d ", matrica[i][j]);
+    printf("\n");
+  }
+  printf("\n");
+
+  int transponovanaMatrica[MAX][MAX];
+  for (i = 0; i < kolone; i++)
+    for (j = 0; j < vrste; j++)
+      transponovanaMatrica[i][j] = matrica[j][i];
+  for (i = 0; i < kolone; i++)
+  {
+    for (j = 0; j < vrste; j++)
+      printf("%d ", transponovanaMatrica[i][j]);
+    printf("\n");
+  }
+   -----------------------------------------
+  int vrste, kolone;
+  printf("Vrste: ");
+  scanf("%d", &vrste);
+  printf("Kolone: ");
+  scanf("%d", &kolone);
+
+  int i, j, matrica[MAX][MAX];
+  for (i = 0; i < vrste; i++)
+    for (j = 0; j < kolone; j++)
+    {
+      printf("El. [%d][%d]: ", i, j);
+      scanf("%d", &matrica[i][j]);
+    }
+  for (i = 0; i < vrste; i++)
+  {
+    for (j = 0; j < kolone; j++)
+      printf("%d ", matrica[i][j]);
+    printf("\n");
+  }
+  printf("\n");
+
+  for (i = 0; i < kolone; i++)
+    for (j = 0; j < vrste; j++)
+      matrica[i][j] = matrica[j][i];
+  for (i = 0; i < kolone; i++)
+  {
+    for (j = 0; j < vrste; j++)
+      printf("%d ", matrica[i][j]);
+    printf("\n");
+  }
+   -----------------------------------------
+  char string[MAX];
+  printf("Unesite string: \n");
+  gets(string);
+
+  int duzinaStringa = strlen(string), i, n = 0;
+  while (strlen(string) > MAX)
+  {
+    printf("Unesite string: \n");
+    gets(string);
+  }
+  for (i = 0; i < duzinaStringa; i++)
+  {
+    if (string[0] > 'Z' || string[0] < 'A')
+    {
+      n++;
+      printf("A: %d\n", n);
+    }
+    if (string[duzinaStringa - 1] != '.')
+    {
+      n++;
+      printf("B: %d\n", n);
+    }
+    if (i != 0 && string[i] != ' ' && string[i] != '.' && string[i] != ',' && string[i] < 'a' || string[i] > 'z')
+    {
+      n++;
+      printf("C: %d %d\n", n, i);
+    }
+    if ((i != duzinaStringa - 1) && (((string[i] == ',' && string[i + 1] == '.') ||
+                                      (string[i] == '.' && string[i + 1] == ',')) ||
+                                     (string[i] == ' ' && string[i + 1] == ' ') ||
+                                     (string[i] == ' ' && string[i + 1] == '.') ||
+                                     (string[i] == ' ' && string[i + 1] == ',') ||
+                                     (string[i] == '.' && string[i + 1] == '.') ||
+                                     (string[i] == ',' && string[i + 1] == ',')))
+    {
+      n++;
+      printf("D: %d %d\n", n, i);
+    }
+  }
+  n ? printf("String nije korektan.") : printf("String je korektan");
+   -----------------------------------------*/
 
   return 0;
 }
