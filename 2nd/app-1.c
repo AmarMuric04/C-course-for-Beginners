@@ -5057,7 +5057,48 @@ int main()
       printf("%d ", rezultat[i][j]);
     printf("\n");
   }
+    -----------------------------------------
+
+  char string[MAX];
+
+  printf("Unesi string\n");
+  fgets(string, MAX, stdin);
+  for (int i = strlen(string) - 1; i >= 0; i--)
+    printf("%c", string[i]);
     -----------------------------------------*/
+
+  char string[MAX];
+  printf("Unesi string: ");
+  fgets(string, MAX, stdin);
+
+  char string2[MAX];
+  strcpy(string2, string);
+  int i, j, duzina = strlen(string);
+  for (i = 0; i < duzina - 1; i++)
+    for (j = i + 1; j < duzina; j++)
+      if (string2[i] > string2[j])
+      {
+        int temp = string2[i];
+        string2[i] = string2[j];
+        string2[j] = temp;
+      }
+  int isti, duzinaIstog = -1, brojac = -1;
+
+  for (i = 0; i < duzina; i++)
+  {
+    brojac = 1;
+    for (int j = i + 1; j < duzina && string2[i] == string2[j] && !isspace(string2[j]); j++)
+    {
+      brojac++;
+      if (brojac > duzinaIstog)
+      {
+        duzinaIstog = brojac;
+        isti = i;
+      }
+    }
+  }
+
+  printf("Slovo koje se najvise puta ponavlja je %c (%d puta).", string2[isti], duzinaIstog);
 
   return 0;
 }
