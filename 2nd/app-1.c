@@ -5155,7 +5155,7 @@ int main()
       printf("%d ", matrica[i][j]);
     printf("\n");
   }
-  -----------------------------*/
+  -----------------------------
   int vrste, kolone;
   printf("Vrste: ");
   scanf("%d", &vrste);
@@ -5188,6 +5188,50 @@ int main()
   {
     for (j = 0; j < vrste; j++)
       printf("%d ", transponovana[i][j]);
+    printf("\n");
+  }
+  -----------------------------*/
+  int vrste;
+  printf("Vrste: ");
+  scanf("%d", &vrste);
+
+  int matrica[vrste][vrste], i, j;
+  int dijagonala[vrste], k = 0;
+  for (i = 0; i < vrste; i++)
+    for (j = 0; j < vrste; j++)
+    {
+      printf("Element [%d][%d]", i, j);
+      scanf("%d", &matrica[i][j]);
+      if (i == j)
+      {
+        dijagonala[k] = matrica[i][j];
+        k++;
+      }
+    }
+  for (i = 0; i < vrste; i++)
+  {
+    for (j = 0; j < vrste; j++)
+      printf("%d ", matrica[i][j]);
+    printf("\n");
+  }
+
+  for (i = 0; i < k / 2; i++)
+  {
+    int temp = dijagonala[i];
+    dijagonala[i] = dijagonala[k - i - 1];
+    dijagonala[k - i - 1] = temp;
+  }
+  printf("\n");
+
+  for (i = 0; i < vrste; i++)
+    for (j = 0; j < vrste; j++)
+      if (i == j)
+        matrica[i][j] = dijagonala[i];
+
+  for (i = 0; i < vrste; i++)
+  {
+    for (j = 0; j < vrste; j++)
+      printf("%d ", matrica[i][j]);
     printf("\n");
   }
   return 0;
