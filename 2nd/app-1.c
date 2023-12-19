@@ -5065,7 +5065,7 @@ int main()
   fgets(string, MAX, stdin);
   for (int i = strlen(string) - 1; i >= 0; i--)
     printf("%c", string[i]);
-    -----------------------------------------*/
+    -----------------------------------------
 
   char string[MAX];
   printf("Unesi string: ");
@@ -5099,6 +5099,96 @@ int main()
   }
 
   printf("Slovo koje se najvise puta ponavlja je %c (%d puta).", string2[isti], duzinaIstog);
+    -----------------------------------------
 
+  int vrste, kolone;
+  printf("Unesi vrste: ");
+  scanf("%d", &vrste);
+  printf("Unesi kolone: ");
+  scanf("%d", &kolone);
+
+  int matrica[MAX][MAX], i, j;
+
+  for (i = 0; i < vrste; i++)
+    for (j = 0; j < kolone; j++)
+    {
+      printf("Element [%d][%d]", i, j);
+      scanf("%d", &matrica[i][j]);
+    }
+
+  for (i = 0; i < vrste; i++)
+  {
+    for (j = 0; j < kolone; j++)
+      printf("%d ", matrica[i][j]);
+    printf("\n");
+  }
+
+  int prvaVrsta, drugaVrsta;
+  printf("Unesi prvu vrstu: ");
+  scanf("%d", &prvaVrsta);
+  printf("Unesi drugu vrstu");
+  scanf("%d", &drugaVrsta);
+  while (prvaVrsta < 0 && prvaVrsta >= drugaVrsta)
+  {
+    printf("Unesi prvu vrstu: ");
+    scanf("%d", &prvaVrsta);
+  }
+  while (drugaVrsta < 0 && drugaVrsta <= prvaVrsta)
+  {
+    printf("Unesi prvu vrstu: ");
+    scanf("%d", &drugaVrsta);
+  }
+
+  for (i = 0; i < vrste; i++)
+  {
+    for (j = 0; j < kolone; j++)
+    {
+      int temp = matrica[prvaVrsta - 1][j];
+      matrica[prvaVrsta - 1][j] = matrica[drugaVrsta - 1][j];
+      matrica[drugaVrsta - 1][j] = temp;
+    }
+  }
+
+  for (i = 0; i < vrste; i++)
+  {
+    for (j = 0; j < kolone; j++)
+      printf("%d ", matrica[i][j]);
+    printf("\n");
+  }
+  -----------------------------*/
+  int vrste, kolone;
+  printf("Vrste: ");
+  scanf("%d", &vrste);
+  printf("Kolone: ");
+  scanf("%d", &kolone);
+
+  int matrica[vrste][kolone];
+  int transponovana[kolone][vrste];
+  int i, j;
+
+  for (i = 0; i < vrste; i++)
+    for (j = 0; j < kolone; j++)
+    {
+      printf("Element [%d][%d]", i, j);
+      scanf("%d", &matrica[i][j]);
+    }
+
+  for (i = 0; i < vrste; i++)
+  {
+    for (j = 0; j < kolone; j++)
+      printf("%d ", matrica[i][j]);
+    printf("\n");
+  }
+
+  for (i = 0; i < vrste; i++)
+    for (j = 0; j < kolone; j++)
+      transponovana[j][i] = matrica[i][j];
+
+  for (i = 0; i < kolone; i++)
+  {
+    for (j = 0; j < vrste; j++)
+      printf("%d ", transponovana[i][j]);
+    printf("\n");
+  }
   return 0;
 }
