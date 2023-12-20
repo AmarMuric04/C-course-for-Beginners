@@ -5190,7 +5190,7 @@ int main()
       printf("%d ", transponovana[i][j]);
     printf("\n");
   }
-  -----------------------------*/
+  -----------------------------
   int vrste;
   printf("Vrste: ");
   scanf("%d", &vrste);
@@ -5234,5 +5234,37 @@ int main()
       printf("%d ", matrica[i][j]);
     printf("\n");
   }
+  -----------------------------*/
+  int a, b;
+  printf("Unesi prvi broj: ");
+  scanf("%d", &a);
+  printf("Unesi drugi broj: ");
+  scanf("%d", &b);
+
+  while (b < a)
+  {
+    printf("Unesi drugi broj: ");
+    scanf("%d", &b);
+  }
+
+  printf("Zbir pojedinacnih cifara: \n");
+  zbirCifara(a, b);
+
   return 0;
+}
+
+void zbirCifara(int a, int b)
+{
+  int suma, i, n;
+  for (i = a; i <= b; i++)
+  {
+    n = i;
+    suma = 0;
+    while (n > 0)
+    {
+      suma += n % 10;
+      n /= 10;
+    }
+    printf("Broj: %d, suma: %d \n", i, suma);
+  }
 }
