@@ -5234,7 +5234,7 @@ int main()
       printf("%d ", matrica[i][j]);
     printf("\n");
   }
-  -----------------------------*/
+  -----------------------------
   int a, b;
   printf("Unesi prvi broj: ");
   scanf("%d", &a);
@@ -5249,6 +5249,168 @@ int main()
 
   printf("Zbir pojedinacnih cifara: \n");
   zbirCifara(a, b);
+  -----------------------------
+
+  char string[MAX][MAX];
+  int duzina, i, j, k = 0;
+
+  printf("Broj imena: ");
+  scanf("%d", &duzina);
+
+  for (i = 0; i < duzina; i++)
+  {
+    printf("Ime broj %d: ", i + 1);
+    scanf("%s", string[i]);
+  }
+
+  // Sort the names alphabetically
+  char temp[MAX];
+  for (i = 0; i < duzina - 1; i++)
+  {
+    for (j = i + 1; j < duzina; j++)
+    {
+      if (strcmp(string[i], string[j]) > 0)
+      {
+        strcpy(temp, string[i]);
+        strcpy(string[i], string[j]);
+        strcpy(string[j], temp);
+      }
+    }
+  }
+
+  // Remove duplicates
+  for (i = 0; i < duzina - 1; i++)
+  {
+    for (j = i + 1; j < duzina; j++)
+    {
+      if (strcmp(string[i], string[j]) == 0)
+      {
+        // Shift elements to remove the duplicate
+        for (k = j; k < duzina - 1; k++)
+        {
+          strcpy(string[k], string[k + 1]);
+        }
+        duzina--; // Decrement array size after removing duplicate
+        j--;      // Adjust index after removing duplicate
+      }
+    }
+  }
+
+  // Print unique sorted names
+  printf("Unique sorted names:\n");
+  for (i = 0; i < duzina; i++)
+  {
+    printf("%d. %s\n", i + 1, string[i]);
+  }
+  -----------------------------
+  char string[MAX];
+  printf("rec: ");
+  gets(string);
+  int i, duzina = strlen(string), brojac = 0;
+  printf("%d", duzina);
+
+  for (i = 0; i < duzina; i++)
+  {
+    if (string[i] != string[duzina - i - 1])
+      brojac++;
+    printf("\n%d, %c %c", i, string[i], string[duzina - i - 1]);
+  }
+
+  if (!brojac)
+    printf("Rec je palindrom");
+  else
+    printf("Niz nije palindrom");
+  -----------------------------
+  char string[MAX][MAX];
+  int duzina, i, j, k = 0;
+
+  printf("Broj imena: ");
+  scanf("%d", &duzina);
+
+  for (i = 0; i < duzina; i++)
+  {
+    printf("Ime broj %d: ", i + 1);
+    scanf("%s", string[i]);
+  }
+
+  // Sort the names alphabetically
+  char temp[MAX];
+  for (i = 0; i < duzina - 1; i++)
+  {
+    for (j = i + 1; j < duzina; j++)
+    {
+      if (strcmp(string[i], string[j]) > 0)
+      {
+        strcpy(temp, string[i]);
+        strcpy(string[i], string[j]);
+        strcpy(string[j], temp);
+      }
+    }
+  }
+
+  // Remove duplicates
+  for (i = 0; i < duzina - 1; i++)
+  {
+    for (j = i + 1; j < duzina; j++)
+    {
+      if (strcmp(string[i], string[j]) == 0)
+      {
+        // Shift elements to remove the duplicate
+        for (k = j; k < duzina - 1; k++)
+        {
+          strcpy(string[k], string[k + 1]);
+        }
+        duzina--; // Decrement array size after removing duplicate
+        j--;      // Adjust index after removing duplicate
+      }
+    }
+  }
+
+  // Print unique sorted names
+  printf("Unique sorted names:\n");
+  for (i = 0; i < duzina; i++)
+  {
+    printf("%d. %s\n", i + 1, string[i]);
+  }
+  -----------------------------
+  char string[MAX][MAX];
+  int duzina, i, j, k = 0;
+
+  printf("Duzina spiska: ");
+  scanf("%d", &duzina);
+
+  for (i = 0; i < duzina; i++)
+  {
+    printf("Ime broj %d: ", i + 1);
+    scanf("%s", string[i]);
+  }
+  char temp[MAX];
+  for (i = 0; i < duzina - 1; i++)
+  {
+    for (j = i + 1; j < duzina; j++)
+    {
+      if (strcmp(string[i], string[j]) > 0)
+      {
+        strcpy(temp, string[i]);
+        strcpy(string[i], string[j]);
+        strcpy(string[j], temp);
+      }
+    }
+  }
+  char spisak2[MAX][MAX];
+  for (i = 0; i < duzina - 1; i++)
+  {
+    if (i == 0 || strcmp(string[i], string[i - 1]) != 0)
+    {
+      strcpy(spisak2[k], string[i]);
+      k++;
+    }
+  }
+  for (i = 0; i < k; i++)
+  {
+    puts(spisak2[i]);
+  }
+  -----------------------------*/
 
   return 0;
 }
