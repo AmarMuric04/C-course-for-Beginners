@@ -5410,6 +5410,86 @@ int main()
   {
     puts(spisak2[i]);
   }
+    -----------------------------
+  int vrste, kolone;
+  printf("Vrste: ");
+  scanf("%d", &vrste);
+  printf("Kolone: ");
+  scanf("%d", &kolone);
+
+  int matrica[vrste][kolone];
+  int transponovana[kolone][vrste];
+  int i, j;
+
+  for (i = 0; i < vrste; i++)
+    for (j = 0; j < kolone; j++)
+    {
+      printf("Element [%d][%d]", i, j);
+      scanf("%d", &matrica[i][j]);
+    }
+
+  for (i = 0; i < vrste; i++)
+  {
+    for (j = 0; j < kolone; j++)
+      printf("%d ", matrica[i][j]);
+    printf("\n");
+  }
+
+  for (i = 0; i < vrste; i++)
+    for (j = 0; j < kolone; j++)
+      transponovana[j][i] = matrica[i][j];
+
+  for (i = 0; i < kolone; i++)
+  {
+    for (j = 0; j < vrste; j++)
+      printf("%d ", transponovana[i][j]);
+    printf("\n");
+  }
+  -----------------------------
+  int vrste;
+  printf("Vrste: ");
+  scanf("%d", &vrste);
+
+  int matrica[vrste][vrste], i, j;
+  int dijagonala[vrste], k = 0;
+  for (i = 0; i < vrste; i++)
+    for (j = 0; j < vrste; j++)
+    {
+      printf("Element [%d][%d]", i, j);
+      scanf("%d", &matrica[i][j]);
+      if (i == j)
+      {
+        dijagonala[k] = matrica[i][j];
+        k++;
+      }
+    }
+  for (i = 0; i < vrste; i++)
+  {
+    for (j = 0; j < vrste; j++)
+      printf("%d ", matrica[i][j]);
+    printf("\n");
+  }
+
+  for (i = 0; i < k / 2; i++)
+  {
+    int temp = dijagonala[i];
+    dijagonala[i] = dijagonala[k - i - 1];
+    dijagonala[k - i - 1] = temp;
+  }
+  printf("\n");
+
+  for (i = 0; i < vrste; i++)
+    for (j = 0; j < vrste; j++)
+      if (i == j)
+        matrica[i][j] = dijagonala[i];
+
+  for (i = 0; i < vrste; i++)
+  {
+    for (j = 0; j < vrste; j++)
+      printf("%d ", matrica[i][j]);
+    printf("\n");
+  }
+  -----------------------------
   -----------------------------*/
 
   return 0;
