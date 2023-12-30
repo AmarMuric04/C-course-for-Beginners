@@ -1,2 +1,2 @@
-tring2[j] && !isspace(string2[i]); j++)
-    {
+
+  for (i = 0; i < duzinaManjeg; i++)

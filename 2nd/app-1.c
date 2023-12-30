@@ -5490,6 +5490,93 @@ int main()
     printf("\n");
   }
   -----------------------------
+  //niz bm i niz an, prikazuje indekse niza an od kojih pocinju pojavljivanja. Transformisati niz an tako dase svi
+  // elementi prvog pojavljivanja podniza bm zamene najmanjim elementom niza an, dok se na poizijama poslednjeg pojavljivanja podniza
+  // treba naci najveci element niza bm, dimenzije i elemente niza unosi korisnik. smatrati da se podniz javlja najmanje 2 puta u nizu..prikazati niz nakon transformacije
+
+  int duzinaVeceg, duzinaManjeg;
+  printf("Duzina veceg: ");
+  scanf("%d", &duzinaVeceg);
+  printf("Duzina manjeg: ");
+  scanf("%d", &duzinaManjeg);
+
+  int veciNiz[duzinaVeceg], manjiNiz[duzinaManjeg], i, j;
+  for (i = 0; i < duzinaVeceg; i++)
+  {
+    printf("%d. Element veceg niza: ", i + 1);
+    scanf("%d", &veciNiz[i]);
+  }
+  printf("\n\n");
+
+  for (i = 0; i < duzinaManjeg; i++)
+  {
+    printf("%d. Element manjeg niza: ", i + 1);
+    scanf("%d", &manjiNiz[i]);
+  }
+  int n, brojac = 0, k = 0, nizPocetaka[MAX];
+
+  for (i = 0; i < duzinaVeceg; i++)
+  {
+    n = i;
+    brojac = 0;
+    for (j = 0; j < duzinaManjeg; j++)
+    {
+      if (veciNiz[n] != manjiNiz[j])
+      {
+        brojac++;
+        break;
+      }
+      n++;
+    }
+    if (!brojac)
+    {
+      nizPocetaka[k] = n - duzinaManjeg + 1;
+      k++;
+    }
+  }
+
+  // Trazenje najveceg
+  int min = veciNiz[0], maximum = manjiNiz[0];
+  for (i = 0; i < duzinaVeceg; i++)
+    if (veciNiz[i] < min)
+      min = veciNiz[i];
+
+  for (i = 0; i < duzinaManjeg; i++)
+    if (manjiNiz[i] > maximum)
+      maximum = manjiNiz[i];
+
+  int prvoPojavljivanje = nizPocetaka[0], zadnjePojavljivanje = nizPocetaka[k - 1];
+
+  printf("%d %d", min, maximum);
+  for (i = 0; i < duzinaVeceg; i++)
+  {
+    if (i == prvoPojavljivanje - 1)
+    {
+      for (j = 0; j < k; j++)
+      {
+        veciNiz[i] = min;
+        i++;
+      }
+    }
+    if (i == zadnjePojavljivanje - 1)
+    {
+      for (j = 0; j < k; j++)
+      {
+        veciNiz[i] = maximum;
+
+        i++;
+      }
+    }
+  }
+  printf("\nIndeksi pocetaka: ");
+  for (i = 0; i < k; i++)
+    printf("%d ", nizPocetaka[i]);
+
+  printf("\nNovi niz: ");
+  for (i = 0; i < duzinaVeceg; i++)
+    printf("%d ", veciNiz[i]);
+
+  printf("\nPrvo pojavljivanje: %d\nZadnje pojavljivanje: %d", prvoPojavljivanje, zadnjePojavljivanje);
   -----------------------------*/
 
   return 0;
