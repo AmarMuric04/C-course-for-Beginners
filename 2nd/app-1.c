@@ -5577,9 +5577,64 @@ int main()
     printf("%d ", veciNiz[i]);
 
   printf("\nPrvo pojavljivanje: %d\nZadnje pojavljivanje: %d", prvoPojavljivanje, zadnjePojavljivanje);
-  -----------------------------*/
+  -----------------------------
+//ISPIT VEZBE
+ int n, k;
+  printf("Unesi duzinu n:");
+  scanf("%d", &n);
 
-  return 0;
+  int niz[n + 1];
+  int maks = 0;
+  for (int i = 0; i < n; i++)
+  {
+    scanf("%d", &niz[i]);
+
+    for (int j = 0; j < i; j++)
+    {
+      if (niz[i] > niz[maks])
+        maks = i;
+    }
+  }
+
+  printf("%d", maks);
+
+  printf("Unesi broj k:");
+  scanf("%d", &k);
+  int brojac = n;
+  for (int i = n + 1; i >= 0; i--)
+  {
+
+    if (i != maks + 1)
+    {
+      niz[i] = niz[brojac];
+      brojac--;
+    }
+    else
+    {
+      niz[i] = k;
+      break;
+    }
+  }
+  printf("\nnovi niz");
+
+  for (int i = 0; i < n + 1; i++)
+    printf("\n%d", niz[i]);
+
+  -----------------------------
+  int n;
+  printf("Unesi broj n:");
+  scanf("%d", &n);
+  int brojac = 0;
+  int i, j, k;
+  for (i = 0; i < 24; i++)
+    for (j = 0; j < 60; j++)
+      for (k = 0; k < 60; k++)
+        if (i + j + k == n)
+          printf("%d : %d : %d\n", i, j, k);
+
+  ----------------------------- */
+
+return 0;
 }
 
 void zbirCifara(int a, int b)
