@@ -241,7 +241,7 @@ int main()
       nizC[i] = 0;
     printf("%d", nizC[i]);
   }
-  --------------------------------------*/
+  --------------------------------------
   int duzina;
   printf("Unesi duzinu nizova:");
   scanf("%d", &duzina);
@@ -260,5 +260,26 @@ int main()
   for (i = 0; i < duzina; i++)
     suma += niz[i] * niz2[i];
   printf("%d", suma);
+  --------------------------------------*/
+  int duzina, i, j;
+  printf("Duzina: ");
+  scanf("%d", &duzina);
+  int niz[duzina];
+
+  for (i = 0; i < duzina; i++)
+  {
+    printf("Element %d: ", i);
+    scanf("%d", &niz[i]);
+  }
+
+  for (i = 0; i < duzina; i += 2)
+  {
+    int temp = niz[i];
+    niz[i] = niz[i + 1];
+    niz[i + 1] = temp;
+  }
+
+  for (i = 0; i < duzina; i++)
+    printf("%d", niz[i]);
   return 0;
 }
