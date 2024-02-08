@@ -1,2 +1,2 @@
 
-  for (i = 0; i < duzinaManjeg; i++)
+    suma += niz[i] * niz2[i];
