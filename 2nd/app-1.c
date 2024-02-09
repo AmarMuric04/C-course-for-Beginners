@@ -5490,7 +5490,7 @@ int main()
     printf("\n");
   }
   -----------------------------
-  //niz bm i niz an, prikazuje indekse niza an od kojih pocinju pojavljivanja. Transformisati niz an tako dase svi
+  //niz bm i niz an, prikazuje indekse niza an od kojih pocinju pojavljivanja. Transformisati niz an tako da se svi
   // elementi prvog pojavljivanja podniza bm zamene najmanjim elementom niza an, dok se na poizijama poslednjeg pojavljivanja podniza
   // treba naci najveci element niza bm, dimenzije i elemente niza unosi korisnik. smatrati da se podniz javlja najmanje 2 puta u nizu..prikazati niz nakon transformacije
 
@@ -5577,64 +5577,9 @@ int main()
     printf("%d ", veciNiz[i]);
 
   printf("\nPrvo pojavljivanje: %d\nZadnje pojavljivanje: %d", prvoPojavljivanje, zadnjePojavljivanje);
-  -----------------------------
-//ISPIT VEZBE
- int n, k;
-  printf("Unesi duzinu n:");
-  scanf("%d", &n);
+  -----------------------------*/
 
-  int niz[n + 1];
-  int maks = 0;
-  for (int i = 0; i < n; i++)
-  {
-    scanf("%d", &niz[i]);
-
-    for (int j = 0; j < i; j++)
-    {
-      if (niz[i] > niz[maks])
-        maks = i;
-    }
-  }
-
-  printf("%d", maks);
-
-  printf("Unesi broj k:");
-  scanf("%d", &k);
-  int brojac = n;
-  for (int i = n + 1; i >= 0; i--)
-  {
-
-    if (i != maks + 1)
-    {
-      niz[i] = niz[brojac];
-      brojac--;
-    }
-    else
-    {
-      niz[i] = k;
-      break;
-    }
-  }
-  printf("\nnovi niz");
-
-  for (int i = 0; i < n + 1; i++)
-    printf("\n%d", niz[i]);
-
-  -----------------------------
-  int n;
-  printf("Unesi broj n:");
-  scanf("%d", &n);
-  int brojac = 0;
-  int i, j, k;
-  for (i = 0; i < 24; i++)
-    for (j = 0; j < 60; j++)
-      for (k = 0; k < 60; k++)
-        if (i + j + k == n)
-          printf("%d : %d : %d\n", i, j, k);
-
-  ----------------------------- */
-
-return 0;
+  return 0;
 }
 
 void zbirCifara(int a, int b)
