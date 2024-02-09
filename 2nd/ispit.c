@@ -16,40 +16,40 @@
 #define REDOVI 5
 #define KOLONE 5
 
-int stvaranjeMatrice(int kolone, int vrste, int matrica[MAX][MAX])
-{
-  int i, j;
-  for (i = 0; i < vrste; i++)
-    for (j = 0; j < kolone; j++)
-    {
-      do
-      {
-        printf("Element [%d][%d]: ", i, j);
-        scanf("%d", &matrica[i][j]);
-      } while (matrica[i][j] > 3 || matrica[i][j] < 0);
-    }
-  return matrica[vrste][kolone];
-}
+// int stvaranjeMatrice(int kolone, int vrste, int matrica[MAX][MAX])
+// {
+//   int i, j;
+//   for (i = 0; i < vrste; i++)
+//     for (j = 0; j < kolone; j++)
+//     {
+//       do
+//       {
+//         printf("Element [%d][%d]: ", i, j);
+//         scanf("%d", &matrica[i][j]);
+//       } while (matrica[i][j] > 3 || matrica[i][j] < 0);
+//     }
+//   return matrica[vrste][kolone];
+// }
 
-void ispisivanjeMatrice(int vrste, int kolone, int matrica[MAX][MAX])
-{
-  int i, j;
-  for (i = 0; i < vrste; i++)
-  {
-    for (j = 0; j < kolone; j++)
-      printf("%d ", matrica[i][j]);
-    printf("\n");
-  }
-}
+// void ispisivanjeMatrice(int vrste, int kolone, int matrica[MAX][MAX])
+// {
+//   int i, j;
+//   for (i = 0; i < vrste; i++)
+//   {
+//     for (j = 0; j < kolone; j++)
+//       printf("%d ", matrica[i][j]);
+//     printf("\n");
+//   }
+// }
 
-char koraci()
-{
-  char korak;
-  while (korak != 'W' && korak != 'S' && korak != 'A' && korak != 'D' && korak != 'K')
-    scanf("%c", &korak);
+// char koraci()
+// {
+//   char korak;
+//   while (korak != 'W' && korak != 'S' && korak != 'A' && korak != 'D' && korak != 'K')
+//     scanf("%c", &korak);
 
-  return korak;
-}
+//   return korak;
+// }
 /*
 int main()
 {
@@ -490,119 +490,226 @@ float srednja(int niz[MAX], int duzina)
   return (float)suma / duzina;
 }
 
-int main()
-{
-  /*
-    int vrste;
-    printf("Duzina: ");
-    scanf("%d", &vrste);
+// int main()
+// {
+/*
+  int vrste;
+  printf("Duzina: ");
+  scanf("%d", &vrste);
 
-    int i, j, matrica[vrste][vrste];
-    for (i = 0; i < vrste; i++)
-      for (j = 0; j < vrste; j++)
-      {
-        printf("element [%d][%d]", i, j);
-        scanf("%d", &matrica[i][j]);
-      }
-    for (i = 0; i < vrste; i++)
-    {
-      for (j = 0; j < vrste; j++)
-        printf("%d ", matrica[i][j]);
-      printf("\n");
-    }
-    int transponovana[vrste][vrste];
-    for (i = 0; i < vrste; i++)
-      for (j = 0; j < vrste; j++)
-        transponovana[i][j] = 0;
-    for (i = 0; i < vrste; i++)
-      for (j = 0; j < vrste; j++)
-        transponovana[i][j] = matrica[j][i];
-
-    printf("transponovana:\n");
-    for (i = 0; i < vrste; i++)
-    {
-      for (j = 0; j < vrste; j++)
-        printf("%d ", transponovana[i][j]);
-      printf("\n");
-    }
-    float najmanjaKolona = srednja(transponovana[0], vrste);
-    printf("\n");
-    float najvecaKolona = srednja(transponovana[0], vrste);
-    printf("\n");
-
-    int najveciIndex = 0, najmanjiIndex = 0;
-    for (i = 0; i < vrste; i++)
-    {
-      if (najmanjaKolona > srednja(transponovana[i], vrste))
-      {
-        printf("\nManji od %d kolone, %.2f, %.2f\n", i, najvecaKolona, srednja(transponovana[i], vrste));
-        najmanjaKolona = srednja(transponovana[i], vrste);
-        najmanjiIndex = i;
-      }
-      if (najvecaKolona < srednja(transponovana[i], vrste))
-      {
-        printf("\nVeca od %d kolone, %.2f, %.2f\n", i, najvecaKolona, srednja(transponovana[i], vrste));
-        najvecaKolona = srednja(transponovana[i], vrste);
-        najveciIndex = i;
-      }
-    }
-
+  int i, j, matrica[vrste][vrste];
+  for (i = 0; i < vrste; i++)
     for (j = 0; j < vrste; j++)
     {
-      int temp = matrica[j][najmanjiIndex];
-      matrica[j][najmanjiIndex] = matrica[j][najveciIndex];
-      matrica[j][najveciIndex] = temp;
+      printf("element [%d][%d]", i, j);
+      scanf("%d", &matrica[i][j]);
     }
-
-    printf("Vrsi se zamena %d i %d kolone!\nKrajnja matrica: \n", najmanjiIndex, najveciIndex);
-    for (i = 0; i < vrste; i++)
-    {
-      for (j = 0; j < vrste; j++)
-        printf("%d ", matrica[i][j]);
-      printf("\n");
-    }
-  --------------------------------------
-  int a, b;
-  printf("Unesi interval a -> b: ");
-  scanf("%d %d", &a, &b);
-
-  for (a; a < b; a++)
+  for (i = 0; i < vrste; i++)
   {
-    int deljiv = 1;
-    int temp = a / 10;
-    if (a < 10)
+    for (j = 0; j < vrste; j++)
+      printf("%d ", matrica[i][j]);
+    printf("\n");
+  }
+  int transponovana[vrste][vrste];
+  for (i = 0; i < vrste; i++)
+    for (j = 0; j < vrste; j++)
+      transponovana[i][j] = 0;
+  for (i = 0; i < vrste; i++)
+    for (j = 0; j < vrste; j++)
+      transponovana[i][j] = matrica[j][i];
+
+  printf("transponovana:\n");
+  for (i = 0; i < vrste; i++)
+  {
+    for (j = 0; j < vrste; j++)
+      printf("%d ", transponovana[i][j]);
+    printf("\n");
+  }
+  float najmanjaKolona = srednja(transponovana[0], vrste);
+  printf("\n");
+  float najvecaKolona = srednja(transponovana[0], vrste);
+  printf("\n");
+
+  int najveciIndex = 0, najmanjiIndex = 0;
+  for (i = 0; i < vrste; i++)
+  {
+    if (najmanjaKolona > srednja(transponovana[i], vrste))
+    {
+      printf("\nManji od %d kolone, %.2f, %.2f\n", i, najvecaKolona, srednja(transponovana[i], vrste));
+      najmanjaKolona = srednja(transponovana[i], vrste);
+      najmanjiIndex = i;
+    }
+    if (najvecaKolona < srednja(transponovana[i], vrste))
+    {
+      printf("\nVeca od %d kolone, %.2f, %.2f\n", i, najvecaKolona, srednja(transponovana[i], vrste));
+      najvecaKolona = srednja(transponovana[i], vrste);
+      najveciIndex = i;
+    }
+  }
+
+  for (j = 0; j < vrste; j++)
+  {
+    int temp = matrica[j][najmanjiIndex];
+    matrica[j][najmanjiIndex] = matrica[j][najveciIndex];
+    matrica[j][najveciIndex] = temp;
+  }
+
+  printf("Vrsi se zamena %d i %d kolone!\nKrajnja matrica: \n", najmanjiIndex, najveciIndex);
+  for (i = 0; i < vrste; i++)
+  {
+    for (j = 0; j < vrste; j++)
+      printf("%d ", matrica[i][j]);
+    printf("\n");
+  }
+--------------------------------------
+int a, b;
+printf("Unesi interval a -> b: ");
+scanf("%d %d", &a, &b);
+
+for (a; a < b; a++)
+{
+  int deljiv = 1;
+  int temp = a / 10;
+  if (a < 10)
+    deljiv = 0;
+  while (temp > 0)
+  {
+    if (temp % 10 == 0 || a / temp % 10 != 0)
+    {
       deljiv = 0;
-    while (temp > 0)
-    {
-      if (temp % 10 == 0 || a / temp % 10 != 0)
-      {
-        deljiv = 0;
-        break;
-      }
-      temp /= 10;
+      break;
     }
-    if (deljiv)
-      printf("%d\n", a);
+    temp /= 10;
   }
---------------------------------------*/
-  int broj;
-  printf("Unesi broj: ");
-  scanf("%d", &broj);
+  if (deljiv)
+    printf("%d\n", a);
+}
+--------------------------------------
+int broj;
+printf("Unesi broj: ");
+scanf("%d", &broj);
 
-  int sumaParnih = 0, sumaNeparnih = 0, brojac = 0;
-  while (broj > 0)
-  {
-    if (brojac % 2 == 0)
-      sumaParnih += broj % 10;
-    else
-      sumaNeparnih += broj % 10;
-    brojac++;
-    broj /= 10;
-  }
-  if (sumaParnih == sumaNeparnih)
-    printf("Broj je savrsen.");
+int sumaParnih = 0, sumaNeparnih = 0, brojac = 0;
+while (broj > 0)
+{
+  if (brojac % 2 == 0)
+    sumaParnih += broj % 10;
   else
-    printf("Broj nije savrsen");
+    sumaNeparnih += broj % 10;
+  brojac++;
+  broj /= 10;
+}
+if (sumaParnih == sumaNeparnih)
+  printf("Broj je savrsen.");
+else
+  printf("Broj nije savrsen");
+--------------------------------------
 
+int trazeni;
+printf("Unesi index trazenog djaka: ");
+scanf("%d", &trazeni);
+while (trazeni > 9 && trazeni < 1)
+  scanf("%d", &trazeni);
+
+int i, j, brojac = 0;
+{
+  for (i = 0; i < 7; i++)
+    for (j = 0; j < 9; j++)
+    {
+      int odgovor;
+      printf("Da li je ucenik br.%d tacno odgovorio na %d. pitanje (da = 1, ne= 0)", j + 1, i + 1);
+      scanf("%d", &odgovor);
+      while (odgovor != 1 && odgovor != 0)
+        scanf("%d", &odgovor);
+      if (odgovor)
+        printf("%d", j + 1);
+      if (odgovor && i == trazeni - 1)
+        brojac++;
+    }
+  printf("\n");
+}
+printf("Trazeni student je imao %d tacnih odgovora.\n", brojac);
+--------------------------------------*/
+
+// return 0;
+// }
+
+int stvaranjeMatrice(int matrica[MAX][MAX], int vrste, int kolone)
+{
+  int i, j;
+  for (i = 0; i < vrste; i++)
+    for (j = 0; j < kolone; j++)
+    {
+      printf("Element [%d][%d]: ", i, j);
+      scanf("%d", &matrica[i][j]);
+    }
+  return matrica[vrste][kolone];
+}
+void ispisivanjeMatrice(int matrica[MAX][MAX], int vrste, int kolone)
+{
+  int i, j;
+  for (i = 0; i < vrste; i++)
+  {
+    for (j = 0; j < kolone; j++)
+      printf("%d ", matrica[i][j]);
+    printf("\n");
+  }
+}
+void pravljenjeNiza(
+    int matrica[MAX][MAX], int vrste, int kolone)
+{
+  int i, j, niz[MAX], brojac = 0, centar;
+  for (i = 0; i < vrste; i++)
+  {
+    niz[brojac] = matrica[i][0];
+    brojac++;
+  }
+  int k = 1;
+  for (i = vrste - 2; i >= 0; i--)
+  {
+    niz[brojac] = matrica[i][k];
+    brojac++;
+    if (k == i)
+    {
+      centar = i;
+      break;
+    }
+    k++;
+  }
+  for (i = centar + 1; i < kolone; i++)
+  {
+    niz[brojac] = matrica[centar][i];
+    brojac++;
+  }
+
+  printf("\n");
+
+  for (i = 0; i < brojac; i++)
+    printf("%d ", niz[i]);
+
+  for (i = 0; i < brojac - 1; i++)
+    for (j = i + 1; j < brojac; j++)
+    {
+      if (niz[j] > niz[i])
+      {
+        int temp = niz[i];
+        niz[i] = niz[j];
+        niz[j] = temp;
+      }
+    }
+  printf("\n");
+
+  for (i = 0; i < brojac; i++)
+    printf("%d ", niz[i]);
+}
+int main()
+{
+  int vrste, kolone, matrica[MAX][MAX];
+  printf("Vrste i kolone: ");
+  scanf("%d %d", &vrste, &kolone);
+  stvaranjeMatrice(matrica, vrste, kolone);
+  ispisivanjeMatrice(matrica, vrste, kolone);
+
+  pravljenjeNiza(matrica, vrste, kolone);
   return 0;
 }
