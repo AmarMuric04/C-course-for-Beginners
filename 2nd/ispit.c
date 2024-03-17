@@ -704,6 +704,7 @@ void pravljenjeNiza(
 }
 int main()
 {
+  /*
   int vrste, kolone, matrica[MAX][MAX];
   printf("Vrste i kolone: ");
   scanf("%d %d", &vrste, &kolone);
@@ -711,5 +712,59 @@ int main()
   ispisivanjeMatrice(matrica, vrste, kolone);
 
   pravljenjeNiza(matrica, vrste, kolone);
+ */
+  int duzina;
+  printf("Unesi duzinu niza: ");
+  scanf("%d", &duzina);
+
+  int i, niz[duzina + 1];
+  for (i = 0; i < duzina; i++)
+  {
+    printf("%d element niza:", i + 1);
+    scanf("%d", &niz[i]);
+  }
+
+  for (i = 0; i < duzina; i++)
+    printf("%d ", niz[i]);
+
+  int broj;
+  printf("\n Unesi broj koji ce biti unet u niz.\n");
+  scanf("%d", &broj);
+
+  int stavljen = 0;
+  int j;
+  for (i = 0; i < duzina - 1; i++)
+    for (j = i + 1; j < duzina; j++)
+      if (niz[i] > niz[j])
+      {
+        int temp = niz[i];
+        niz[i] = niz[j];
+        niz[j] = temp;
+      }
+
+  printf("\nSortiran: ");
+  for (i = 0; i < duzina; i++)
+    printf("%d ", niz[i]);
+
+  printf("\n");
+
+  for (i = duzina + 1; i > 0; i--)
+  {
+    if (niz[i - 1] > broj)
+      niz[i] = niz[i - 1];
+    else
+    {
+      niz[i] = broj;
+      stavljen = 1;
+    }
+    if (stavljen)
+      break;
+  }
+
+  printf("\nUnet broj: ");
+
+  for (i = 0; i < duzina + 1; i++)
+    printf("%d ", niz[i]);
+
   return 0;
 }
