@@ -5579,6 +5579,8 @@ int main()
   printf("\nPrvo pojavljivanje: %d\nZadnje pojavljivanje: %d", prvoPojavljivanje, zadnjePojavljivanje);
   -----------------------------*/
 
+
+
   return 0;
 }
 
